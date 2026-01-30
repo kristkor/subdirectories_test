@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConveyThis subdirectory links test</title>
+	<!--           ConveyThis Script Start         -->
+<script src="//dev-app-1.conveythis.com/cdn/dist/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
+<!--           ConveyThis Script End         -->
+</head>
+</head>
+<body>
+    <h1>Subdirectory links test</h1>
+    <p>Current URL: <code id="current-url"></code></p>
+    <p>Open this page with <strong>/es/</strong> in the path (e.g. <code>.../es/test-subdirectory.html</code>), then switch language to ES. Links below should get <code>/es/</code> prefix.</p>
+
+    <h2>Static links (on load)</h2>
+    <ul>
+        <li><a href="/mypc">MyPC (relative)</a></li>
+        <li><a href="/about">About (relative)</a></li>
+        <li><a href="https://www.example.com/external">External (should not change)</a></li>
+    </ul>
+
+    <h2>Dynamic block (injected after 2s – tests AJAX path)</h2>
+    <div id="dynamic-block"></div>
+
+    <!-- Load ConveyThis from LOCAL build (cdn/dist) – replace YOUR_API_KEY with your real api_key -->
+    <script>
+        document.getElementById('current-url').textContent = window.location.href;
+
+        // Simulate Squarespace-style dynamic content: inject a link after 2 seconds
+        setTimeout(function () {
+            var wrap = document.getElementById('dynamic-block');
+            wrap.innerHTML = '<p><a href="/mypc">MyPC (dynamic link)</a> – this link was added by JS; hover to check href.</p>';
+        }, 2000);
+    </script>
+    <!-- Replace YOUR_API_KEY. For URL with /es/ use: app_conveythis/es/test-subdirectory.html -->
+    <script src="cdn/dist/conveythis.js?api_key=YOUR_API_KEY&debug=1"></script>
+</body>
+</html>
