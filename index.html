@@ -1,40 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConveyThis subdirectory links test</title>
-	<!--           ConveyThis Script Start         -->
-<script src="//dev-app-1.conveythis.com/cdn/dist/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
-<!--           ConveyThis Script End         -->
-</head>
+  <meta charset="UTF-8">
+  <title>All About Cats</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f7f7fb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #ececf3;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+	<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
 </head>
 <body>
-    <h1>Subdirectory links test</h1>
-    <p>Current URL: <code id="current-url"></code></p>
-    <p>Open this page with <strong>/es/</strong> in the path (e.g. <code>.../es/test-subdirectory.html</code>), then switch language to ES. Links below should get <code>/es/</code> prefix.</p>
 
-    <h2>Static links (on load)</h2>
-    <ul>
-        <li><a href="/mypc">MyPC (relative)</a></li>
-        <li><a href="/about">About (relative)</a></li>
-        <li><a href="https://www.example.com/external">External (should not change)</a></li>
-    </ul>
+  <header>
+    <h1>Wonderful Cats</h1>
+    <p>Soft paws, sharp minds, and endless charm</p>
+  </header>
 
-    <h2>Dynamic block (injected after 2s – tests AJAX path)</h2>
-    <div id="dynamic-block"></div>
+  <main>
+    <section>
+      <h2>Why We Love Cats</h2>
+      <p>
+        Cats are curious, elegant, and full of personality. They love naps,
+        sunbeams, and pretending they don’t care (even when they do).
+        Whether playful or calm, every cat has a unique charm.
+      </p>
+    </section>
 
-    <!-- Load ConveyThis from LOCAL build (cdn/dist) – replace YOUR_API_KEY with your real api_key -->
-    <script>
-        document.getElementById('current-url').textContent = window.location.href;
+    <section>
+      <h2>Meet Some Cats</h2>
+      <div class="card-grid">
+        <div class="card">
+          <img src="https://placekitten.com/400/300" alt="Cute cat">
+          <div class="card-content">
+            <h3>Sleepy Cat</h3>
+            <p>Professional napper. Loves warm blankets and quiet afternoons.</p>
+          </div>
+        </div>
 
-        // Simulate Squarespace-style dynamic content: inject a link after 2 seconds
-        setTimeout(function () {
-            var wrap = document.getElementById('dynamic-block');
-            wrap.innerHTML = '<p><a href="/mypc">MyPC (dynamic link)</a> – this link was added by JS; hover to check href.</p>';
-        }, 2000);
-    </script>
-    <!-- Replace YOUR_API_KEY. For URL with /es/ use: app_conveythis/es/test-subdirectory.html -->
-    <script src="cdn/dist/conveythis.js?api_key=YOUR_API_KEY&debug=1"></script>
+        <div class="card">
+          <img src="https://placekitten.com/401/300" alt="Playful cat">
+          <div class="card-content">
+            <h3>Playful Cat</h3>
+            <p>Always chasing imaginary enemies and laser dots.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://placekitten.com/402/300" alt="Curious cat">
+          <div class="card-content">
+            <h3>Curious Cat</h3>
+            <p>Needs to inspect every box, bag, and open door.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with ❤️ for cat lovers
+  </footer>
+
 </body>
 </html>
