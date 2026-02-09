@@ -426,6 +426,48 @@
 </section>
     </div>
 
+    <h2>NEW TEST</h2>
+<div>
+  <h2>TEST A</h2>
+  <!-- TEST A: No section, no br/span - single h1 text (most likely to work) -->
+<div class="container mt-5 mb-5">
+    <h1 class="display-3 fw-bold lh-sm mb-0">ConveyThis vs Alternatives</h1>
+</div>
+</div>
+    <div>
+  <h2>TEST B</h2>
+ <!-- TEST B: With section, no br/span -->
+<section class="section hero-pricing py-5 text-center mt-3">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">ConveyThis vs Alternatives</h1>
+    </div>
+</section>
+</div>
+    <div>
+      <h2>TEST C</h2>
+      <!-- TEST C: Section + br + span (current failing pattern) -->
+<section class="section hero-pricing py-5 text-center mt-3">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<br><span class="headline-gradient"> vs Alternatives</span>
+        </h1>
+    </div>
+</section>
+    </div>
+        <div>
+      <h2>TEST D</h2>
+    <!-- TEST D: No section, but still br + span -->
+<div class="section hero-pricing py-5 text-center mt-3">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<br><span class="headline-gradient"> vs Alternatives</span>
+        </h1>
+    </div>
+</div>
+    </div>
+</section>
+    </div>
+    
     <section>
       <h2>Meet Some Cats</h2>
       <div class="card-grid">
@@ -584,6 +626,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
