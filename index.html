@@ -313,37 +313,118 @@
     
 
     <!-- NEW: Body language section -->
-    <section>
-      <h2>Cat Body Language 101</h2>
+    <div>
+      <h2>TEST</h2>
 
-      <div class="two-col">
-        <div class="note">
-          <strong>Quick guide:</strong><br>
-          Cats “talk” with ears, tails, eyes, and posture.<br>
-          Watching these signals helps you understand what they need.
-          <hr class="divider">
+      <!-- TEST 1a: <br> only -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="1a-br">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<br><span class="headline-gradient"> vs Alternatives</span>
+        </h1>
+    </div>
+</section>
 
-          <strong>Common signals:</strong><br>
-          • Slow blink = “I trust you”<br>
-          • Tail up = friendly greeting<br>
-          • Ears forward = curious / engaged<br>
-          • Ears flat = stressed / overwhelmed<br>
-          • Purring = often happy (but can also mean self-soothing)
-        </div>
+<!-- TEST 1b: <br/> self-closing -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="1b-br-slash">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<br/><span class="headline-gradient"> vs Alternatives</span>
+        </h1>
+    </div>
+</section>
 
-        <div class="mini-card">
-          <h3>Try this</h3>
-          <p>
-            Give your cat a slow blink.<br>
-            If they blink back, you just had a tiny cat conversation.
-          </p>
-          <p>
-            Keep your movements calm.<br>
-            Cats usually prefer gentle, predictable vibes.
-          </p>
-        </div>
-      </div>
-    </section>
+<!-- TEST 1c: <br /> with space -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="1c-br-space">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<br /><span class="headline-gradient"> vs Alternatives</span>
+        </h1>
+    </div>
+</section>
+
+<!-- TEST 1d: invalid </br> -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="1d-br-close">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis</br><span class="headline-gradient"> vs Alternatives</span>
+        </h1>
+    </div>
+</section>
+
+
+      
+    </div>
+    <div>
+      <h2>TEST 2 </h2>
+      <!-- TEST 2a: comment before <br> -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="2a-comment-before-br">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<!-- --><br><span class="headline-gradient"> vs Alternatives</span>
+        </h1>
+    </div>
+</section>
+
+<!-- TEST 2b: comment around <br> -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="2b-comment-around-br">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<!-- <br> --><br><span class="headline-gradient"> vs Alternatives</span>
+        </h1>
+    </div>
+</section>
+
+<!-- TEST 2c: comment after <span> open -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="2c-comment-in-span">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<br><span class="headline-gradient"><!-- --> vs Alternatives</span>
+        </h1>
+    </div>
+</section>
+    </div>
+    <div>
+      <h2>TEst 3 </h2>
+      <!-- TEST 3a: space before vs -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="3a-space-before-vs">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<br><span class="headline-gradient">  vs Alternatives</span>
+        </h1>
+    </div>
+</section>
+
+<!-- TEST 3b: no space before vs -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="3b-no-space-vs">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<br><span class="headline-gradient">vs Alternatives</span>
+        </h1>
+    </div>
+</section>
+
+<!-- TEST 3c: newline in source between br and span -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="3c-newline">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<br>
+            <span class="headline-gradient"> vs Alternatives</span>
+        </h1>
+    </div>
+</section>
+    </div>
+    <div>
+      <h2>Test 4 </h2>
+      <!-- TEST 4: no br, only span (baseline - expect visual editor to work) -->
+<section class="section hero-pricing py-5 text-center mt-3" data-test="4-no-br">
+    <div class="container mt-5 mb-5">
+        <h1 class="display-3 fw-bold lh-sm mb-0">
+            ConveyThis<span class="headline-gradient"> vs Alternatives</span>
+        </h1>
+    </div>
+</section>
+    </div>
 
     <section>
       <h2>Meet Some Cats</h2>
@@ -363,7 +444,7 @@
             <p>Always chasing imaginary enemies and laser dots.<br>Energy level: maximum.</p>
           </div>
         </div>
-
+  <
         <div class="card">
           <img src="https://placekitten.com/402/300" alt="Curious cat">
           <div class="card-content">
@@ -503,6 +584,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
