@@ -1,0 +1,887 @@
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8" />
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KB698DR8");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta name="format-detection" content="email=no,telephone=no,address=no" />
+    <title>暮らすように泊まる倉敷｜美観地区一棟貸し×ラグジュアリー滞在</title>
+    <meta
+      name="description"
+      content="倉敷美観地区内の一棟貸し宿に、個人・団体で滞在できるラグジュアリープラン。名士による特別なチェックイン、荷物配送、ガストロノミーディナー、天文台ラウンジ利用付き。"
+    />
+    <link rel="stylesheet" href="./css/globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
+    <link rel="alternate icon" href="./img/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon.png" />
+    <link rel="canonical" href="https://kurashiki-stay.com/" />
+    <meta
+      property="og:title"
+      content="暮らすように泊まる倉敷｜美観地区一棟貸し×ラグジュアリー滞在 "
+    />
+    <meta
+      property="og:description"
+      content="倉敷美観地区内の一棟貸し宿に、個人・団体で滞在できるラグジュアリープラン。名士による特別なチェックイン、荷物配送、ガストロノミーディナー、天文台ラウンジ利用付き。"
+    />
+    <meta property="og:url" content="https://kurashiki-stay.com/" />
+    <meta
+      property="og:image"
+      content="https://kurashiki-stay.com/img/hero.webp"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KB698DR8"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <!-- PC Nav -->
+        <nav class="navbar">
+          <a href="#concept" class="nav-link">コンセプト</a>
+          <a href="#stay-in-stories" class="nav-link">Stay in Stories</a>
+          <a href="#accommodation" class="nav-link">宿泊施設</a>
+          <a href="#cuisine" class="nav-link">料理</a>
+          <a href="#services" class="nav-link">サービス</a>
+          <a href="#sample-plans" class="nav-link">モデルプラン</a>
+          <a href="#access" class="nav-link">アクセス</a>
+          <button class="btn-contact contact" id="btn-contact">
+            お問い合わせ
+          </button>
+        </nav>
+
+        <!-- ハンバーガーボタン (SP/Tabletのみ表示) -->
+        <button class="header-contect contact tab-sp" id="header-contect-btn">
+          お問い合わせ
+        </button>
+        <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+    <nav id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-inner">
+        <a href="#concept" class="mobile-link">コンセプト</a>
+        <a href="#stay-in-stories" class="mobile-link">Stay in Stories</a>
+        <a href="#accommodation" class="mobile-link">宿泊施設</a>
+        <a href="#cuisine" class="mobile-link">料理</a>
+        <a href="#services" class="mobile-link">サービス</a>
+        <a href="#sample-plans" class="mobile-link">モデルプラン</a>
+        <a href="#access" class="mobile-link">アクセス</a>
+
+        <button class="btn-mobile-contact contact" id="btn-mobile-contact">
+          お問い合わせ
+        </button>
+      </div>
+    </nav>
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <video
+          class="pc"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="./img/hero.webp"
+        >
+          <source src="./movie/PC_top_movie.mp4" type="video/mp4" />
+        </video>
+        <video
+          class="tab"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="./img/hero-tab.webp"
+        >
+          <source src="./movie/TAB_top_movie.mp4" type="video/mp4" />
+        </video>
+        <video
+          class="sp"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="./img/hero-sp.webp"
+        >
+          <source src="./movie/SP_top_movie.mp4" type="video/mp4" />
+        </video>
+      </section>
+
+      <!-- Concept -->
+      <section id="concept" class="concept">
+        <div class="concept-inner">
+          <h1>Concept</h1>
+          <p>
+            町家の宿や蔵を改装した宿、<br
+              class="sp"
+            />離れの宿、川沿いの宿…<br /><br />
+            人々の暮らしにすっと入り込むような<br
+              class="sp"
+            />やわらかな時間<br />
+            それは、倉敷という「時空」。<br />
+            昔と今が溶け合う町並み、<br class="sp" />朝と夜の静かな刻、<br />
+            心ほぐれる、ほどよい距離感。<br />
+            心の余白を感じる倉敷で、<br class="sp" />お待ちしております。
+          </p>
+        </div>
+      </section>
+
+      <div class="container">
+        <!-- Stay in Stories -->
+        <section id="stay-in-stories" class="section stay-section">
+          <div class="section-heading-line">
+            <h2>Stay in Stories</h2>
+            <span class="subheading">- こんな方におすすめ</span>
+          </div>
+
+          <div class="stay-tabs">
+            <a href="#story-01" class="tab-link active"
+              >Stay and Discover more</a
+            >
+            <a href="#story-02" class="tab-link"
+              >Where Staying Feels Like Belonging</a
+            >
+            <a href="#story-03" class="tab-link"
+              >Kurashiki — Closer than you think</a
+            >
+          </div>
+
+          <!-- Content 01 -->
+          <article id="story-01" class="story-content">
+            <div class="story-index">
+              <span class="story-num">01</span>
+              <h3 class="story-title-vertical">
+                Stay and <br class="pc" />Discover more
+              </h3>
+            </div>
+            <div class="story-body">
+              <div class="story-img">
+                <img src="./img/story-01.webp" alt="Stay and Discover more" />
+              </div>
+              <div class="story-desc">
+                <h3 class="pc">Stay and Discover more</h3>
+                <p>
+                  この地の今と昔を知り、<br class="pc" />
+                  自然体の日常時間を体感する。<br /><br />
+                  提供したいのは…<br class="pc" /><br class="sp" />
+                  暮らしと地続きのステイ体験。<br />
+                  実現したいのは…<br class="pc" /><br class="sp" />
+                  一歩踏み込むアクティビティ、<br />
+                  岡山を味わう食の体験。<br />
+                  ――まさしく「Experience Kurashiki Like a <br class="pc" />
+                  Local」<br class="sp" />なのです。
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Content 02 -->
+          <article id="story-02" class="story-content">
+            <div class="story-index">
+              <span class="story-num">02</span>
+              <h3 class="story-title-vertical">
+                Where Staying <br class="pc" /><br class="sp" />Feels Like
+                Belonging
+              </h3>
+            </div>
+            <div class="story-body">
+              <div class="story-img">
+                <img
+                  src="./img/story-02.webp"
+                  alt="Where Staying Feels Like Belonging"
+                />
+              </div>
+              <div class="story-desc">
+                <h3 class="pc">Where Staying Feels Like Belonging</h3>
+                <p>
+                  古い町家特有の気配、通学する学生の朝の声、<br class="pc" /><br
+                    class="sp"
+                  />
+                  路地を照らす月明かり、<br />
+                  遠くから聞こえる寺の鐘の音。<br />
+                  倉敷に暮らす人が、<br />
+                  同じよう目にし耳にしてきた景色や音を感じて過ごす時間が、<br
+                    class="tab"
+                  />ここにはあります。<br />
+                  旅先ではなく、その日常の延長にいるような<br />
+                  あなただけの時間を、倉敷時空に重ねてください。
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Content 03 -->
+          <article id="story-03" class="story-content">
+            <div class="story-index">
+              <span class="story-num">03</span>
+              <h3 class="story-title-vertical">
+                Kurashiki — <br class="pc" /><br class="sp" />Closer than you
+                think
+              </h3>
+            </div>
+            <div class="story-body">
+              <div class="story-img">
+                <img
+                  src="./img/story-03.webp"
+                  alt="Kurashiki — Closer than you think"
+                />
+              </div>
+              <div class="story-desc">
+                <h3 class="pc">Kurashiki — Closer than you think</h3>
+                <p>
+                  生活空間がモザイクのように、混在している観光地としての倉敷は、<br
+                    class="tab"
+                  />よそゆき顔ではありません。<br />
+                  400年前の町並みを残しつつも、<br class="pc" /><br
+                    class="sp"
+                  />
+                  常に暮らしがそばにある現在進行形。<br />
+                  そんな、新旧の調和が織りなす町が、<br class="pc" /><br
+                    class="sp"
+                  />
+                  自然体の町・倉敷なのです。<br />
+                  東京・京都・大阪・広島のゴールデンルートの途中、<br
+                    class="tab"
+                  /><br
+                    class="sp"
+                  />ふらりと羽を休めて中休みするにも最適な場所です。
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Accommodation -->
+        <section id="accommodation" class="section accommodation-section">
+          <div class="section-heading-line section-heading-line-narrow">
+            <h2>Accommodation</h2>
+            <span class="subheading">- 宿泊施設</span>
+          </div>
+          <p class="accommodation-lead">
+            宿の扉を開けたら400年前の町並み――<br />
+            観光地の中の滞在――<br />
+            観光客のいない時間、朝、夜の倉敷の<br class="tab" /><br
+              class="sp"
+            />いつもの日常の中で“暮らす”ように<br class="tab" /><br
+              class="sp"
+            />
+            お泊りください。
+          </p>
+          <div class="facility-list-outer">
+            <ul class="facility-list">
+              <li>
+                <a href="https://hiyasai.com/" target="_blank"
+                  >HIYASAI<span></span
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.ryokan-kurashiki.jp/en/" target="_blank"
+                  >RYOKAN KURASHIKI + Residence<span></span
+                ></a>
+              </li>
+              <li>
+                <a href="https://tsuchiyatei.jp/" target="_blank"
+                  >土屋邸<span></span
+                ></a>
+              </li>
+            </ul>
+            <ul class="facility-list">
+              <li>
+                <a href="https://toutou-kurashiki.jp/" target="_blank"
+                  >滔々<span></span
+                ></a>
+              </li>
+              <li>
+                <a href="https://bettei-yoshii.com/en/" target="_blank"
+                  >吉井旅館 別邸よし井<span></span
+                ></a>
+              </li>
+              <li>
+                <a href="https://yoruya-kurashiki.com/en/" target="_blank"
+                  >撚る屋<span></span
+                ></a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Room Slider Area -->
+          <div class="room-area">
+            <div class="room-header-vertical">
+              <aside class="sidebar">
+                <h3>Room type</h3>
+                <ul class="room-nav-list" id="roomNavList">
+                  <li data-index="0" class="active">01 スーペリア</li>
+                  <li data-index="1">02 デラックス</li>
+                  <li data-index="2">03 プレミアム</li>
+                  <li data-index="3">04 プレミアムデラックス</li>
+                </ul>
+              </aside>
+              <main class="main-content">
+                <h1 class="room-title" id="roomTitle">01 スーペリア</h1>
+                <div class="slider-container">
+                  <button class="arrow-btn prev" id="btnPrev"></button>
+                  <div class="image-wrapper">
+                    <img
+                      src=""
+                      alt="Main Room Image"
+                      class="main-image"
+                      id="mainImage"
+                    />
+                  </div>
+                  <button class="arrow-btn next" id="btnNext"></button>
+                </div>
+                <div class="thumbnail-list" id="thumbnailList"></div>
+                <div class="room-spec">
+                  <div class="spec-item">
+                    <img
+                      class="icon"
+                      src="./img/floor-plan-icon.png"
+                      alt="floor plan icon"
+                    />
+                    <span id="roomSize">42〜50㎡</span>
+                  </div>
+                  <div class="spec-item">
+                    <img
+                      class="icon"
+                      src="./img/bed-icon.png"
+                      alt="room capacity icon"
+                    />
+                    <span id="roomCapacity">1名〜2名</span>
+                  </div>
+                </div>
+                <p class="room-desc" id="roomDesc">
+                  Galleryの2階にある宿や蔵を改装した宿等をご用意しております。
+                </p>
+                <div class="info-card" id="infoCard"></div>
+              </main>
+            </div>
+            <!-- Map Section -->
+            <div class="map-section-new">
+              <div class="section-heading-line">
+                <h2>Map</h2>
+                <span class="subheading">- マップ</span>
+              </div>
+              <!-- TAB・SP用地図 -->
+              <div class="map-main tab">
+                <img id="lang-img-tab" src="img/map-tab.webp" alt="Map" />
+              </div>
+              <div class="map-main sp">
+                <img id="lang-img-sp" src="img/map-sp.webp" alt="Map" />
+              </div>
+              <div class="map-layout">
+                <!-- PC左：サムネイル3枚 -->
+                <div class="map-left-thumbs pc">
+                  <div class="map-thumb-item">
+                    <img src="./img/hiyasai.webp" alt="HIYASAI" />
+                    <span>①HIYASAI</span>
+                  </div>
+                  <div class="map-thumb-item">
+                    <img
+                      src="./img/ryokan-kurashiki-residence.webp"
+                      alt="RYOKAN KURASHIKI + Residence"
+                    />
+                    <span
+                      >②RYOKAN KURASHIKI&nbsp;<br
+                        class="tab-sp"
+                      />+&nbsp;Residence</span
+                    >
+                  </div>
+                  <div class="map-thumb-item">
+                    <img src="./img/tuthiyatei.webp" alt="土屋邸" />
+                    <span>③土屋邸</span>
+                  </div>
+                </div>
+                <!-- 中央：メイン地図 -->
+                <div class="map-main pc">
+                  <img id="lang-img-pc" src="img/map.webp" alt="Map" />
+                </div>
+                <!-- PC右：サムネイル3枚 -->
+                <div class="map-right-thumbs pc">
+                  <div class="map-thumb-item">
+                    <img src="./img/toutou.webp" alt="滔々" />
+                    <span>④～➉滔々</span>
+                  </div>
+                  <div class="map-thumb-item">
+                    <img
+                      src="./img/yoshiiryokan-betteiyosii.webp"
+                      alt="吉井旅館 別邸よし井"
+                    />
+                    <span>⑪吉井旅館 別邸よし井</span>
+                  </div>
+                  <div class="map-thumb-item map-thumb-item-last">
+                    <img src="img/yoruya.webp" alt="撚る屋" />
+                    <span>⑫撚る屋</span>
+                  </div>
+                </div>
+                <!-- TAB/SP版サムネイル6枚 -->
+                <div class="map-thumbs tab-sp">
+                  <div class="map-thumb-item">
+                    <img src="./img/hiyasai.webp" alt="HIYASAI" />
+                    <span>①HIYASAI</span>
+                  </div>
+                  <div class="map-thumb-item">
+                    <img
+                      src="./img/ryokan-kurashiki-residence.webp"
+                      alt="RYOKAN KURASHIKI + Residence"
+                    />
+                    <span
+                      >②RYOKAN KURASHIKI<br class="tab-sp" />
+                      + Residence</span
+                    >
+                  </div>
+                  <div class="map-thumb-item">
+                    <img src="./img/tuthiyatei.webp" alt="土屋邸" />
+                    <span>③土屋邸</span>
+                  </div>
+                  <div class="map-thumb-item">
+                    <img src="img/toutou.webp" alt="滔々" />
+                    <span>④～➉滔々</span>
+                  </div>
+                  <div class="map-thumb-item">
+                    <img
+                      src="./img/yoshiiryokan-betteiyosii.webp"
+                      alt="吉井旅館 別邸よし井"
+                    />
+                    <span>⑪吉井旅館 別邸よし井</span>
+                  </div>
+                  <div class="map-thumb-item">
+                    <img src="./img/yoruya.webp" alt="撚る屋" />
+                    <span>⑫撚る屋</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cuisine -->
+        <section id="cuisine" class="section">
+          <div class="section-heading-line">
+            <h2>Cuisine</h2>
+            <span class="subheading">- 料理</span>
+          </div>
+          <div class="cuisine-layout">
+            <div class="cuisine-top">
+              <div class="cuisine-main-img">
+                <img src="./img/cuisine-main.webp" alt="Main Cuisine" />
+              </div>
+              <div class="cuisine-desc">
+                <h3>倉敷ガストロノミー</h3>
+                <p>
+                  たとえば、アートを鑑賞するように、<br class="tab" /><br
+                    class="sp"
+                  />
+                  料理を味わってもらいたい。<br />
+                  また、コース料理は、ひとつの物語に等しい、<br class="sp" />
+                  とも言える。<br />
+                  そこには起承転結があり、<br class="sp" />
+                  味、香りを通して紡がれる物語。<br />
+                  この物語を通じて、倉敷、および一本の川でつながる高梁川流域の風土を、感じてもらいたい。<br />
+                  230年前に建てられた邸宅で、<br class="tab" /><br class="sp" />
+                  岡山県の食の豊かさを実感する。<br />
+                  そんな、極上のひとときをお過ごしください。<br />
+                </p>
+              </div>
+            </div>
+            <!-- 下部4枚の写真 -->
+            <div class="cuisine-bottom-grid">
+              <img src="./img/cuisine-01.webp" alt="Cuisine" />
+              <img src="./img/cuisine-02.webp" alt="Cuisine" />
+              <img src="./img/cuisine-03.webp" alt="Cuisine" />
+              <img src="./img/cuisine-04.webp" alt="Cuisine" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="section">
+          <div class="section-heading-line">
+            <h2>Services</h2>
+            <span class="subheading">- サービス</span>
+          </div>
+
+          <div class="services-grid">
+            <div class="service-img-col">
+              <img src="./img/sevice-img.webp" alt="Service" />
+            </div>
+            <div class="service-text-col">
+              <div class="service-block">
+                <h3>町のチェックイン</h3>
+                <p>
+                  町のチェックイン — 倉敷に暮らすように旅をはじめる<br />
+                  当旅は宿のチェックインからではなく、<br />
+                  「町のチェックイン」から始まります。<br /><br />
+
+                  「町のチェックインカウンター」で行う<br />
+                  ブリーフィングは、単なる説明の時間ではありません。<br /><br />
+
+                  この町で暮らす人々の視点、町の表情、<br />
+                  そして重ねられてきた歴史や時間が感じられる場所を、<br />
+                  紹介する――<br />
+                  「町そのもの」にチェックインする、はじまりの時間です。
+                </p>
+              </div>
+              <div class="service-block">
+                <h3>往復荷物配送サービス</h3>
+                <p>
+                  倉敷に着いた時から手ぶらで観光できます。<br />
+                  倉敷駅/観光バス駐車場から各宿泊施設へ荷物を配送いたします。<br />
+                  お帰りは、宿泊施設に預けていただけましたら、<br />
+                  倉敷駅/観光バス駐車場にお届けいたします。
+                </p>
+              </div>
+            </div>
+            <div class="service-row">
+              <div class="service-img-col service-img-col-last tab-sp">
+                <img src="./img/astro-lounge.webp" alt="Astro lounge" />
+              </div>
+              <div class="service-text-col">
+                <div class="service-block">
+                  <h3>アストロ・ラウンジ</h3>
+                  <p>
+                    町なか、暮らしのそばで、<br
+                      class="sp"
+                    />創設から100年の時を重ねてきた<br />
+                    日本初の「民間の天文台」があります。<br
+                      class="sp"
+                    />その隣には今、<br class="pc" /><br class="tab" />
+                    かつて多くの惑星を発見し、<br
+                      class="sp"
+                    />コメットハンターと呼ばれた<br class="pc" /><br
+                      class="tab"
+                    />天文学者が、<br
+                      class="sp"
+                    />暮らしていた住まいをリノベーションした<br />カフェラウンジがあります。<br />
+                    宇宙（そら）の星を見つける場所から、<br />
+                    地上で輝く人をもてなす場所へ。<br />
+                    地上の「星」のように輝く時間を、味わってください。<br />
+                  </p>
+                </div>
+              </div>
+              <div class="service-img-col pc">
+                <img src="./img/astro-lounge.webp" alt="Astro lounge" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sample Plans -->
+        <section id="sample-plans" class="section">
+          <div class="section-heading-line">
+            <h2>Sample Plans</h2>
+            <span class="subheading">- モデルプラン</span>
+          </div>
+          <div class="plan-img tab-sp">
+            <img src="./img/plan-img-tab-sp.webp" alt="Plan img" />
+          </div>
+          <div class="plan-layout">
+            <!-- 左：テキスト情報 -->
+            <div class="plan-info-side">
+              <span class="plan-label">Model Course</span>
+              <h3>
+                Experience Kurashiki<br class="pc" /><br class="sp" />
+                Like a Local
+              </h3>
+              <p>
+                地域ならでは、をラグジュアリーに味わう食体験と、<br />
+                夜は、天文台敷地内の施設をラウンジとして利用しながら。<br />
+                400年以上変わらない町に溶け込むように滞在する。
+              </p>
+
+              <dl class="plan-dl">
+                <div>
+                  <dt>旅のスタイル</dt>
+                  <dd>褒賞旅行</dd>
+                </div>
+                <div>
+                  <dt>人数</dt>
+                  <dd>10名</dd>
+                </div>
+                <div>
+                  <dt>期間</dt>
+                  <dd>1泊2日</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="plan-img-side pc">
+              <img src="./img/plan-img.webp" alt="Plan img" />
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="timeline-wrapper">
+            <div class="timeline-day">
+              <div class="day-title">Day 1</div>
+              <div class="day-content">
+                <div class="t-event t-box-style">
+                  <div class="t-text">
+                    <span class="t-name">ストレスフリーな荷物配送サービス</span>
+                    <p>
+                      バスやJRで倉敷に到着した際に、お客様の荷物を宿まで配送します。<br />
+                      宿のチェックインまでの煩わしい作業を解消いたします。
+                    </p>
+                  </div>
+                </div>
+                <div class="t-event t-connect-line t-event-img">
+                  <div class="t-event-content">
+                    <span class="t-name">町のチェックイン</span>
+                    <p>
+                      地域の名士が皆様をお出迎えいたします。<br />
+                      先祖代々、この地で語られてきた江戸時代からのストーリーを聞けば、一挙にあなたも倉敷の町の懐へ。
+                    </p>
+                  </div>
+                  <div class="t-event-img-1 pc">
+                    <img src="./img/event-01.webp" />
+                  </div>
+                </div>
+                <div class="t-event t-connect-line">
+                  <span class="t-name">フリータイム</span>
+                  <p>
+                    倉敷美観地区と倉敷駅周辺エリアは歩いて回れるコンパクトさ。<br />
+                    宿のチェックインまでぜひ住んでいる感覚で路地を散策し、町の表情を感じてみてください。
+                  </p>
+                </div>
+                <div class="t-event t-connect-line">
+                  <span class="t-name">宿のチェックイン</span>
+                  <p>
+                    滞在中、お客様が暮らすように泊まる「家」となる宿のチェックインを行います。
+                  </p>
+                </div>
+                <div class="t-event t-connect-line">
+                  <span class="t-name">KURASHIKI GASTRONOMY</span>
+                  <p>
+                    230年前に建てられた邸宅で味わう、「The華紋」が提供するこのプランだけの特別なコースディナーです。<br />
+                    食事制限のある方は、ご相談ください。
+                  </p>
+                </div>
+                <div class="t-event t-connect-line t-event-img">
+                  <div class="t-event-content">
+                    <span class="t-name">アストロ・ラウンジ</span>
+                    <p>
+                      2026年に100周年を迎える、日本初の民間の天文台「倉敷天文台」。<br />
+                      その敷地内にあるブックカフェが、ナイトタイムのラウンジとして利用ができます。<br />
+                      地酒を楽しむも良し、天文関連の古き書籍に囲まれた空間で、ゆったりと流れる時を感じてみるも良し。<br />
+                      天候に恵まれれば、天文台の望遠鏡での星空観測も叶います。
+                    </p>
+                  </div>
+                  <div class="t-event-img-2 pc">
+                    <img src="./img/event-02.webp" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-day">
+              <div class="day-title">Day 2</div>
+              <div class="day-content">
+                <div class="t-event t-connect-line">
+                  <span class="t-name">起床</span>
+                  <p>観光地とは思えない静かな倉敷の朝をお過ごしください。</p>
+                </div>
+                <div class="t-event t-connect-line">
+                  <span class="t-name">朝食</span>
+                  <p>倉敷国際ホテルでのブッフェ朝食をご用意しております。</p>
+                </div>
+                <div class="t-event t-connect-line">
+                  <span class="t-name">チェックアウト</span>
+                  <p>
+                    宿のチェックアウトの際に、荷物をお預けくだされば、倉敷駅もしくはバス駐車場での受け取りが可能です。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Access -->
+        <section id="access" class="section">
+          <div class="section-heading-line section-heading-line-narrow">
+            <h2>Location & Access</h2>
+            <span class="subheading">- アクセス</span>
+          </div>
+          <span class="access-desc">
+            直島、広島、大阪、京都、東京から新旧の調和が織りなす町　倉敷へ
+          </span>
+          <div class="access-content">
+            <div class="japan-map">
+              <img class="pc" src="./img/japan-map.webp" alt="Japan Map" />
+              <img class="tab" src="./img/japan-map-tab.webp" alt="Japan Map" />
+              <img class="sp" src="./img/japan-map-sp.webp" alt="Japan Map" />
+            </div>
+            <div class="access-diagrams">
+              <div class="diagram-block">
+                <h3>公共交通機関でお越しの方</h3>
+                <img
+                  class="pc"
+                  src="./img/public-transport.webp"
+                  alt="東京 -飛行機：羽田空港-飛行機1時間20分-岡山空港―バス約40分-倉敷駅 -電車：東京駅-新幹線約3時間20分-岡山駅-電車18分-倉敷駅,大阪- 電車：新大阪駅-新幹線50分-岡山駅-電車18分-倉敷駅,京都-電車：京都駅-新幹線約1時間-岡山駅-電車18分-倉敷駅,広島-電車：広島駅-新幹線40分-岡山駅-電車18分-倉敷駅,直島- 電車：直島-フェリー20分-宇野港-徒歩2分-宇野駅-電車50分-岡山駅-電車18分-倉敷駅"
+                />
+                <img
+                  class="tab"
+                  src="./img/public-transport-tab.webp"
+                  alt="東京 -飛行機：羽田空港-飛行機1時間20分-岡山空港―バス約40分-倉敷駅 -電車：東京駅-新幹線約3時間20分-岡山駅-電車18分-倉敷駅,大阪- 電車：新大阪駅-新幹線50分-岡山駅-電車18分-倉敷駅,京都-電車：京都駅-新幹線約1時間-岡山駅-電車18分-倉敷駅,広島-電車：広島駅-新幹線40分-岡山駅-電車18分-倉敷駅,直島- 電車：直島-フェリー20分-宇野港-徒歩2分-宇野駅-電車50分-岡山駅-電車18分-倉敷駅"
+                />
+                <img
+                  class="sp"
+                  src="./img/public-transport-sp.webp"
+                  alt="東京 -飛行機：羽田空港-飛行機1時間20分-岡山空港―バス約40分-倉敷駅 -電車：東京駅-新幹線約3時間20分-岡山駅-電車18分-倉敷駅,大阪- 電車：新大阪駅-新幹線50分-岡山駅-電車18分-倉敷駅,京都-電車：京都駅-新幹線約1時間-岡山駅-電車18分-倉敷駅,広島-電車：広島駅-新幹線40分-岡山駅-電車18分-倉敷駅,直島- 電車：直島-フェリー20分-宇野港-徒歩2分-宇野駅-電車50分-岡山駅-電車18分-倉敷駅"
+                />
+              </div>
+              <div class="diagram-block">
+                <h3>車でお越しの方</h3>
+                <img
+                  class="pc"
+                  src="img/car-access.webp"
+                  alt="大阪 -車：約2時間30分,京都 -車：約3時間,広島 -車：約2時間,直島 -車：約1時間10分"
+                />
+                <img
+                  class="tab"
+                  src="./img/car-access-tab.webp"
+                  alt="大阪 -車：約2時間30分,京都 -車：約3時間,広島 -車：約2時間,直島 -車：約1時間10分"
+                />
+                <img
+                  class="sp"
+                  src="img/car-access-sp.webp"
+                  alt="大阪 -車：約2時間30分,京都 -車：約3時間,広島 -車：約2時間,直島 -車：約1時間10分"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- News -->
+        <section class="section news-group">
+          <div class="news-part">
+            <div class="section-heading-line news-h2">
+              <h2>お知らせ</h2>
+            </div>
+            <ul class="news-layout" id="news-list"></ul>
+          </div>
+        </section>
+        <!--Contact -->
+        <section>
+          <div class="contact-part">
+            <div class="contact-box">
+              <p class="c-tel">
+                <img src="./img/tell-icon.svg" alt="tell" />
+                <a href="tel:086-425-0001">086-425-0001</a>
+              </p>
+              <p class="c-hours">9:00～18:00（定休日なし）</p>
+
+              <button class="btn-contact-white contact" id="btn-contact-white">
+                お問い合わせ
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-nav-wrap">
+            <span class="footer-logo">よしゐ屋BASE</span>
+            <nav class="footer-nav">
+              <a href="#concept">コンセプト</a>
+              <a href="#stay-in-stories">Stay in Stories</a>
+              <a href="#accommodation">宿泊施設</a>
+              <a href="#cuisine">料理</a>
+              <a href="#services">サービス</a>
+              <a href="#sample-plans">モデルプラン</a>
+              <a href="#access">アクセス</a>
+              <button
+                class="footer-contact-btn contact"
+                id="footer-contact-btn"
+              >
+                お問い合わせ
+              </button>
+            </nav>
+          </div>
+          <p class="copyright">
+            Copyright © 2026 yoshiiyabase All Rights Reserved.
+          </p>
+        </div>
+      </footer>
+    </main>
+    <!-- Modal (お知らせ詳細ポップアップ) -->
+    <div id="news-modal" class="modal-overlay">
+      <div class="modal-container">
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close">
+          <span></span>
+          <span></span>
+        </button>
+        <div class="modal-scroll-wrapper">
+          <div class="modal-header">
+            <h2>お知らせ</h2>
+          </div>
+          <div class="modal-body">
+            <span class="modal-date" id="modal-date"></span>
+            <h3 class="modal-title" id="modal-title"></h3>
+            <div class="modal-divider"></div>
+            <div class="modal-text" id="modal-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "よしゐ屋BASE",
+        "url": "https://kurashiki-stay.com/",
+        "description": "倉敷美観地区内の一棟貸し宿に、個人・団体で滞在できるラグジュアリープラン。名士による特別なチェックイン、荷物配送、ガストロノミーディナー、天文台ラウンジ利用付き。 ",
+        "logo": "https://kurashiki-stay.com/img/favicon.png",
+        "telephone": "086-425-0001",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "JP",
+          "addressRegion": "岡山県",
+          "addressLocality": "倉敷市"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      }
+    </script>
+    <script src="./js/index.js"></script>
+    <script src="./js/news.js"></script>
+    <script src="./js/room.js"></script>
+    <script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_aaa373997464efdf44cd92ebf811fd75"></script>
+  </body>
+</html>
