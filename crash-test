@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamic Translation Stress Test</title>
+<!--           ConveyThis Script Start         -->
+<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
+<!--           ConveyThis Script End         -->
+  <meta name="description" content="Dynamic translation stress test with JavaScript-rendered content, nested HTML, placeholders, and non-translatable zones.">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #111;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 1px solid #333;
+      background: #fff;
+      color: #111;
+      padding: 10px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn:hover {
+      background: #f0f0f0;
+    }
+
+    .muted {
+      color: #666;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border: 1px solid #999;
+      border-radius: 999px;
+      font-size: 12px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+
+    .status {
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tab-panel {
+      border-top: 1px solid #ddd;
+      padding-top: 14px;
+    }
+
+    .accordion-item {
+      border-top: 1px solid #ddd;
+      padding: 12px 0;
+    }
+
+    .accordion-item:first-child {
+      border-top: none;
+    }
+
+    .accordion-content {
+      margin-top: 10px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 700px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    code, pre {
+      font-family: Consolas, Monaco, monospace;
+      font-size: 14px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #f3f3f3;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .notification-list > div {
+      border: 1px dashed #bbb;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .token-line span {
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    .footer-note {
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="card" aria-label="Main page introduction">
+      <h1>Dynamic Translation Stress Test</h1>
+      <p>
+        This page mixes <strong>static HTML</strong>, <em>dynamic JavaScript content</em>,
+        interactive UI components, delayed rendering, and protected non-translatable fragments.
+      </p>
+      <p>
+        Current status:
+        <span class="status">pending_review &gt; localization &gt; runtime_render_check</span>
+      </p>
+      <p class="muted">
+        Some segments should be translated into Russian, while some segments must remain unchanged.
+      </p>
+      <div>
+        <span class="badge">Static text</span>
+        <span class="badge">Dynamic text</span>
+        <span class="badge">Modal</span>
+        <span class="badge">Tabs</span>
+        <span class="badge">Accordion</span>
+        <span class="badge">Protected segments</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Protected non-translatable zone</h2>
+      <p>
+        The following fragments should ideally stay untouched:
+      </p>
+      <div class="conveythis-no-translate">
+        <p>Order ID: #{order_id}</p>
+        <p>Reference: REF-2026-04-08-XYZ</p>
+        <p>Path: /var/www/site/public_html/project/</p>
+        <p>API URL: https://example.com/api/v2/translate?lang=ru&mode=full</p>
+        <p>Tokens: %s, %d, {{value}}, [[anchor]], :attribute</p>
+        <p>Code: logic=true && false || !unknown</p>
+      </div>
+      <p>
+        The block above uses the <code>conveythis-no-translate</code> class and is intended to test exclusion behavior.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Mixed translatable and non-translatable inline content</h2>
+      <p>
+        Hello, <strong>{{user_name}}</strong>! Your package
+        <span class="conveythis-no-translate">#{shipment_id}</span>
+        is currently being processed and should arrive within
+        <strong>3-5 business days</strong>.
+      </p>
+      <p>
+        Please keep
+        <span class="conveythis-no-translate">SKU-AX92-BLUE</span>,
+        <span class="conveythis-no-translate">$24.50</span>,
+        and
+        <span class="conveythis-no-translate">UTC+03:00</span>
+        unchanged where appropriate.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Form controls and text attributes</h2>
+      <form action="/submit" method="post">
+        <label for="full-name">Full name</label>
+        <input
+          id="full-name"
+          name="full_name"
+          type="text"
+          placeholder="Enter your full name"
+          title="Type your legal full name here"
+          aria-label="Full name input field"
+        >
+
+        <label for="email-address">Email address</label>
+        <input
+          id="email-address"
+          name="email"
+          type="email"
+          placeholder="name@example.com"
+          title="We will use this address for support replies"
+          aria-label="Email address input field"
+        >
+
+        <label for="country-select">Country</label>
+        <select
+          id="country-select"
+          name="country"
+          title="Choose your current country of residence"
+          aria-label="Country selector"
+        >
+          <option value="">Select your country</option>
+          <option value="us">United States</option>
+          <option value="de">Germany</option>
+          <option value="jp">Japan</option>
+          <option value="br">Brazil</option>
+        </select>
+
+        <label for="support-message">Support message</label>
+        <textarea
+          id="support-message"
+          name="message"
+          rows="5"
+          placeholder="Describe your issue in detail"
+          title="Provide as much detail as possible"
+          aria-label="Support message textarea"
+        >My package hasn't arrived yet, and I would like an update on the delivery status.</textarea>
+
+        <label>
+          <input type="checkbox" name="terms" value="yes">
+          I agree to the Terms of Service and Privacy Policy.
+        </label>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Tabs with dynamic text swapping</h2>
+      <div class="tabs" role="tablist" aria-label="Example tabs">
+        <button class="btn tab-btn" type="button" data-tab="tab-1" aria-label="Open overview tab">Overview</button>
+        <button class="btn tab-btn" type="button" data-tab="tab-2" aria-label="Open shipping tab">Shipping</button>
+        <button class="btn tab-btn" type="button" data-tab="tab-3" aria-label="Open billing tab">Billing</button>
+      </div>
+
+      <div id="tab-1" class="tab-panel">
+        <h3>Overview</h3>
+        <p>
+          This order contains 3 items and is currently in the review queue.
+        </p>
+        <p>
+          Estimated completion time: 1-2 business days.
+        </p>
+      </div>
+
+      <div id="tab-2" class="tab-panel hidden">
+        <h3>Shipping</h3>
+        <p>
+          The shipment is being prepared for dispatch from the regional warehouse.
+        </p>
+        <p>
+          Tracking number:
+          <span class="conveythis-no-translate">TRK-998812-XY</span>
+        </p>
+      </div>
+
+      <div id="tab-3" class="tab-panel hidden">
+        <h3>Billing</h3>
+        <p>
+          Your payment was authorized successfully, and the invoice is ready for download.
+        </p>
+        <p>
+          Invoice number:
+          <span class="conveythis-no-translate">INV-2026-000145</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Accordion with nested elements</h2>
+
+      <div class="accordion-item">
+        <button class="btn accordion-toggle" type="button" aria-expanded="false">
+          Why was my card charged twice?
+        </button>
+        <div class="accordion-content hidden">
+          <p>
+            In some cases, a temporary authorization may appear as a duplicate charge.
+            Please allow <strong>3-7 business days</strong> for the pending entry to disappear.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="btn accordion-toggle" type="button" aria-expanded="false">
+          Can I cancel within 14 days and still get a full refund?
+        </button>
+        <div class="accordion-content hidden">
+          <p>
+            Yes, you may request a cancellation within 14 days, provided the item has not been used
+            and all original components are included.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="btn accordion-toggle" type="button" aria-expanded="false">
+          Where can I download my invoice as a PDF file?
+        </button>
+        <div class="accordion-content hidden">
+          <p>
+            Open the billing section and click the button labeled
+            <strong>Download invoice</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Dynamic counters and auto-updating text</h2>
+      <p>
+        Live counter:
+        <strong id="live-counter">0</strong>
+      </p>
+      <p id="dynamic-status-text">
+        Waiting for dynamic status update...
+      </p>
+      <button class="btn" type="button" id="refresh-message-btn" aria-label="Refresh dynamic message">
+        Refresh dynamic message
+      </button>
+      <button class="btn" type="button" id="append-note-btn" aria-label="Append notification item">
+        Add notification
+      </button>
+    </section>
+
+    <section class="card">
+      <h2>JavaScript-rendered list</h2>
+      <p>
+        The list below is injected after page load:
+      </p>
+      <div id="js-rendered-list"></div>
+    </section>
+
+    <section class="card">
+      <h2>Notification feed with runtime-generated entries</h2>
+      <div id="notification-list" class="notification-list"></div>
+    </section>
+
+    <section class="card">
+      <h2>Table with mixed content</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+            <th>Expected behavior</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>locale</td>
+            <td>en-US</td>
+            <td>Visible text may be translated naturally into Russian.</td>
+          </tr>
+          <tr>
+            <td>timezone</td>
+            <td class="conveythis-no-translate">UTC+03:00</td>
+            <td>The timezone value should remain unchanged.</td>
+          </tr>
+          <tr>
+            <td>decimal_format</td>
+            <td class="conveythis-no-translate">12,345.67</td>
+            <td>Protected numeric formatting sample.</td>
+          </tr>
+          <tr>
+            <td>reference_code</td>
+            <td class="conveythis-no-translate">&lt;REF-2026-04-08-XYZ&gt;</td>
+            <td>Should remain untouched if exclusion works correctly.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Template-based dynamic content</h2>
+      <p>
+        This area is rendered from a <code>&lt;template&gt;</code> element:
+      </p>
+      <div id="template-target"></div>
+
+      <template id="message-template">
+        <div class="card">
+          <h3>Delayed template message</h3>
+          <p>
+            Your request has been moved to the advanced processing queue.
+          </p>
+          <p>
+            Assigned agent:
+            <span class="conveythis-no-translate">agent_047_alpha</span>
+          </p>
+          <p>
+            Estimated reply time:
+            <strong>less than 24 hours</strong>
+          </p>
+        </div>
+      </template>
+    </section>
+
+    <section class="card">
+      <h2>Code-like and token-heavy content</h2>
+      <pre><code>payload={
+  "title":"Hello, world!",
+  "count":3,
+  "flags":["new","hot","sale"],
+  "active":true,
+  "meta":{"source":"landing-page","version":"2.7.14-beta"}
+}
+
+path="/var/www/site/public_html/project/"
+api_url="https://example.com/api/v2/translate?lang=ru&mode=full"
+tokens="%s | %d | {{value}} | [[anchor]] | :attribute | #{id}"</code></pre>
+
+      <div class="conveythis-no-translate">
+        <pre><code>logic=true && false || !unknown
+compare: <= >= == != === !==
+unicode-safe-token=ZX-91_QWERTY-2026</code></pre>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Special characters, Unicode, and punctuation</h2>
+      <p>café • naïve • fiancé • résumé • coöperate • smörgåsbord • über • año • mañana • São Paulo</p>
+      <p>Αθήνα • 東京 • 서울 • مرحبا • שלום • हिन्दी</p>
+      <p>✅ ❌ ⚠️ 🔥 🚀 💡 📦 🧪 🛠️ 🌍</p>
+      <p class="token-line">
+        <span>"double quotes"</span>
+        <span>'single quotes'</span>
+        <span>«angled quotes»</span>
+        <span>(parentheses)</span>
+        <span>[square brackets]</span>
+        <span>{curly braces}</span>
+        <span>&lt;escaped tags&gt;</span>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Modal window test</h2>
+      <p>
+        Open the modal to reveal content that may not exist in the DOM flow initially.
+      </p>
+      <button class="btn" type="button" id="open-modal-btn" aria-label="Open support modal">
+        Open support modal
+      </button>
+    </section>
+
+    <section class="card footer-note">
+      <h2>Final instruction</h2>
+      <p>
+        Translate all human-readable text into Russian naturally, but do not break
+        HTML structure, placeholders, identifiers, protected code fragments, URLs,
+        entities, or segments marked with the
+        <code>conveythis-no-translate</code> class.
+      </p>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Support details modal">
+      <h2>Support request details</h2>
+      <p>
+        Your request is currently under manual review by the support team.
+      </p>
+      <p>
+        Ticket number:
+        <span class="conveythis-no-translate">SUP-2026-88421</span>
+      </p>
+      <p>
+        Please do not close the page while the update is being processed.
+      </p>
+      <button class="btn" type="button" id="close-modal-btn" aria-label="Close support modal">
+        Close modal
+      </button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const messages = [
+        "The order has been validated and is waiting for final confirmation.",
+        "A shipping label has been created, but the package has not yet left the warehouse.",
+        "The billing team has verified your payment successfully.",
+        "A support agent will contact you shortly with additional details.",
+        "The delivery estimate has been recalculated based on regional carrier load."
+      ];
+
+      const notifications = [
+        "A new support reply has been added to your conversation.",
+        "Your refund request has moved to the next review stage.",
+        "The address verification check was completed successfully.",
+        "A PDF invoice is now available for download.",
+        "Your account preferences have been updated."
+      ];
+
+      const renderedListData = [
+        "My package hasn't arrived yet.",
+        "Why was my card charged twice?!",
+        "Can I cancel within 14 days and still get a full refund?",
+        "Where can I download my invoice as a PDF file?",
+        "I entered the wrong email address by mistake."
+      ];
+
+      const counterEl = document.getElementById("live-counter");
+      const dynamicStatusTextEl = document.getElementById("dynamic-status-text");
+      const refreshMessageBtn = document.getElementById("refresh-message-btn");
+      const appendNoteBtn = document.getElementById("append-note-btn");
+      const renderedListEl = document.getElementById("js-rendered-list");
+      const notificationListEl = document.getElementById("notification-list");
+      const templateTargetEl = document.getElementById("template-target");
+      const templateEl = document.getElementById("message-template");
+      const openModalBtn = document.getElementById("open-modal-btn");
+      const closeModalBtn = document.getElementById("close-modal-btn");
+      const modalBackdrop = document.getElementById("modal-backdrop");
+
+      let counter = 0;
+      let messageIndex = 0;
+      let notificationIndex = 0;
+
+      function updateCounter() {
+        counter += 1;
+        counterEl.textContent = String(counter);
+      }
+
+      function rotateMessage() {
+        dynamicStatusTextEl.textContent = messages[messageIndex % messages.length];
+        dynamicStatusTextEl.setAttribute("title", "Dynamic message index: " + messageIndex);
+        messageIndex += 1;
+      }
+
+      function appendNotification() {
+        const item = document.createElement("div");
+        const text = notifications[notificationIndex % notifications.length];
+        item.innerHTML =
+          "<strong>Notification:</strong> " +
+          text +
+          " <span class='conveythis-no-translate'>(event_id=EVT-" +
+          (1000 + notificationIndex) +
+          ")</span>";
+        notificationListEl.appendChild(item);
+        notificationIndex += 1;
+      }
+
+      function renderJsList() {
+        const wrapper = document.createElement("div");
+        const title = document.createElement("h3");
+        title.textContent = "Runtime-generated support examples";
+        wrapper.appendChild(title);
+
+        const list = document.createElement("ol");
+        renderedListData.forEach(function (entry, idx) {
+          const li = document.createElement("li");
+          li.innerHTML =
+            entry +
+            " <span class='conveythis-no-translate'>[id=item_" +
+            (idx + 1) +
+            "]</span>";
+          list.appendChild(li);
+        });
+
+        wrapper.appendChild(list);
+        renderedListEl.appendChild(wrapper);
+      }
+
+      function renderTemplateContent() {
+        const clone = templateEl.content.cloneNode(true);
+        templateTargetEl.appendChild(clone);
+      }
+
+      function openModal() {
+        modalBackdrop.classList.add("open");
+        modalBackdrop.setAttribute("aria-hidden", "false");
+      }
+
+      function closeModal() {
+        modalBackdrop.classList.remove("open");
+        modalBackdrop.setAttribute("aria-hidden", "true");
+      }
+
+      document.querySelectorAll(".tab-btn").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const targetId = button.getAttribute("data-tab");
+          document.querySelectorAll(".tab-panel").forEach(function (panel) {
+            panel.classList.add("hidden");
+          });
+          const target = document.getElementById(targetId);
+          if (target) {
+            target.classList.remove("hidden");
+          }
+        });
+      });
+
+      document.querySelectorAll(".accordion-toggle").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const content = button.nextElementSibling;
+          const isExpanded = button.getAttribute("aria-expanded") === "true";
+          button.setAttribute("aria-expanded", isExpanded ? "false" : "true");
+          if (content) {
+            content.classList.toggle("hidden");
+          }
+        });
+      });
+
+      refreshMessageBtn.addEventListener("click", rotateMessage);
+      appendNoteBtn.addEventListener("click", appendNotification);
+      openModalBtn.addEventListener("click", openModal);
+      closeModalBtn.addEventListener("click", closeModal);
+
+      modalBackdrop.addEventListener("click", function (event) {
+        if (event.target === modalBackdrop) {
+          closeModal();
+        }
+      });
+
+      renderJsList();
+      renderTemplateContent();
+      rotateMessage();
+      appendNotification();
+      appendNotification();
+
+      setInterval(updateCounter, 1000);
+
+      setTimeout(function () {
+        const delayedBlock = document.createElement("section");
+        delayedBlock.className = "card";
+        delayedBlock.innerHTML =
+          "<h2>Delayed JavaScript insertion</h2>" +
+          "<p>This block was inserted 2 seconds after page load to test delayed translation handling.</p>" +
+          "<p>Session token: <span class='conveythis-no-translate'>sess_2026_dynamic_7781</span></p>" +
+          "<p>Visible ETA: less than 48 hours</p>";
+        document.querySelector(".container").appendChild(delayedBlock);
+      }, 2000);
+    })();
+  </script>
+</body>
+</html>
