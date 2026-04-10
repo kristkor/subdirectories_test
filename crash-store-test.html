@@ -1,1 +1,432 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store Translation Stress Test</title>
+  <!--           ConveyThis Script Start         -->
+<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
+<!--           ConveyThis Script End         -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.45;
+      margin: 24px;
+      color: #222;
+      background: #fafafa;
+    }
+    h1, h2, h3 {
+      margin-top: 28px;
+    }
+    section {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      border: 1px solid #e2e2e2;
+      border-radius: 8px;
+      padding: 12px;
+      background: #fcfcfc;
+    }
+    .label {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    ul {
+      margin: 8px 0 0 20px;
+    }
+    .muted {
+      color: #777;
+    }
+    .warning {
+      color: #9a6700;
+    }
+    .error {
+      color: #b42318;
+    }
+    .success {
+      color: #067647;
+    }
+    code {
+      background: #f3f3f3;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Store Page Translation Stress Test</h1>
+  <p class="muted">This HTML contains many realistic e-commerce text segments in English for translation plugin testing.</p>
+
+  <section id="header-nav">
+    <h2>1. Header and Navigation</h2>
+    <div class="grid">
+      <div class="card"><div class="label">Navigation</div><p>Home</p><p>Shop</p><p>All Products</p><p>New Arrivals</p><p>Best Sellers</p><p>Sale</p></div>
+      <div class="card"><div class="label">Account</div><p>Sign In</p><p>Create Account</p><p>My Orders</p><p>Wishlist</p><p>Recently Viewed</p></div>
+      <div class="card"><div class="label">Actions</div><p>Add to Cart</p><p>Buy Now</p><p>Compare</p><p>Save for Later</p><p>Notify Me</p></div>
+    </div>
+  </section>
+
+  <section id="search-filter-sort">
+    <h2>2. Search, Filters, and Sorting</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="label">Search</div>
+        <p>Search products</p>
+        <p>Try searching by product name, SKU, or brand</p>
+        <p>No results found</p>
+        <p>Did you mean: wireless headphones?</p>
+      </div>
+      <div class="card">
+        <div class="label">Filters</div>
+        <p>Category</p>
+        <p>Brand</p>
+        <p>Color</p>
+        <p>Size</p>
+        <p>Material</p>
+        <p>Availability</p>
+        <p>Price Range</p>
+        <p>Free Shipping</p>
+        <p>In Stock Only</p>
+        <p>Clear All Filters</p>
+      </div>
+      <div class="card">
+        <div class="label">Sort</div>
+        <p>Sort by Popularity</p>
+        <p>Sort by Newest</p>
+        <p>Price: Low to High</p>
+        <p>Price: High to Low</p>
+        <p>Highest Rated</p>
+        <p>Best Reviewed</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="promo-banners">
+    <h2>3. Promo and Marketing Banners</h2>
+    <ul>
+      <li>Get 10% off your first order with code <strong>WELCOME10</strong></li>
+      <li>Buy 2, get 1 free on selected accessories</li>
+      <li>Limited-time offer ends tonight at 11:59 PM</li>
+      <li>Online exclusive — available while supplies last</li>
+      <li>Free shipping on orders over $50</li>
+      <li>0% installment plan available on eligible items</li>
+      <li>This promotion cannot be combined with other discounts</li>
+      <li>Price valid for online purchases only</li>
+    </ul>
+  </section>
+
+  <section id="product-cards">
+    <h2>4. Product Cards</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="label">Electronics</div>
+        <p>Wireless Earbuds AeroBeat Lite, White, Bluetooth 5.3, Active Noise Cancellation, Up to 28 Hours</p>
+        <p><strong>$79.99</strong> <span class="muted"><s>$99.99</s></span></p>
+        <p>In stock</p>
+      </div>
+      <div class="card">
+        <div class="label">Home</div>
+        <p>Ultrasonic Humidifier 4L, Night Mode, Auto Shut-Off, Suitable for Rooms up to 35 m²</p>
+        <p><strong>$49.00</strong></p>
+        <p>Only 3 left in stock</p>
+      </div>
+      <div class="card">
+        <div class="label">Fashion</div>
+        <p>Unisex Oversized T-Shirt, 100% Cotton, Washed Black, Relaxed Fit</p>
+        <p><strong>$24.50</strong></p>
+        <p>Available in XS, S, M, L, XL</p>
+      </div>
+      <div class="card">
+        <div class="label">Beauty</div>
+        <p>Niacinamide 10% + Zinc 1% Serum, 30 ml, Fragrance-Free</p>
+        <p><strong>$12.90</strong></p>
+        <p>Best seller</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="long-product-names">
+    <h2>5. Long Product Titles</h2>
+    <ul>
+      <li>Professional Espresso Machine with Milk Frother, 20-Bar Pressure, 1.8L Water Tank, Stainless Steel Housing, Silver</li>
+      <li>14-inch UltraBook Laptop with Intel Core i7 Processor, 16GB RAM, 1TB SSD, 2.8K OLED Display, Wi-Fi 6E, Space Gray</li>
+      <li>Anatomical Double-Sided Medium-Firm Mattress 160×200 cm with 7-Zone Pocket Springs and Removable Aloe Vera Cover</li>
+      <li>Child Car Seat Group 0+/1/2/3 with 360° Rotation, ISOFIX, Top Tether, Newborn Insert, Gray</li>
+    </ul>
+  </section>
+
+  <section id="descriptions">
+    <h2>6. Product Descriptions</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="label">Neutral</div>
+        <p>This product is designed for everyday use and combines practicality, durability, and a clean, modern look. It is easy to maintain and suitable for home, office, or travel.</p>
+      </div>
+      <div class="card">
+        <div class="label">Marketing</div>
+        <p>Discover a new level of comfort and convenience. Thoughtfully designed down to the last detail, this item makes daily tasks faster, easier, and more enjoyable.</p>
+      </div>
+      <div class="card">
+        <div class="label">Technical</div>
+        <p>The housing is made of aluminum alloy and polycarbonate. Input voltage: 100–240 V, 50/60 Hz. Connectivity: USB-C, Bluetooth 5.3, Wi-Fi 802.11ax.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="specifications">
+    <h2>7. Technical Specifications</h2>
+    <ul>
+      <li>Brand: Nordline</li>
+      <li>Model: XR-500</li>
+      <li>SKU: XR500-BLK-128</li>
+      <li>EAN: 5901234123456</li>
+      <li>Color: Midnight Black</li>
+      <li>Material: Aluminum, ABS Plastic</li>
+      <li>Net Weight: 1.24 kg</li>
+      <li>Package Dimensions: 31 × 22 × 9 cm</li>
+      <li>Country of Origin: Vietnam</li>
+      <li>Warranty: 12 months</li>
+      <li>Power: 2200 W</li>
+      <li>Voltage: 220–240 V</li>
+      <li>Protection Rating: IP54</li>
+      <li>Compatibility: Android 10+ / iOS 15+</li>
+    </ul>
+  </section>
+
+  <section id="variants">
+    <h2>8. Variants and Options</h2>
+    <ul>
+      <li>Color: Black / White / Sand / Olive / Lavender / Graphite / Champagne</li>
+      <li>Size: XS / S / M / L / XL / XXL</li>
+      <li>Storage: 128 GB / 256 GB / 512 GB / 1 TB</li>
+      <li>Length: 1 m / 2 m / 3 m</li>
+      <li>Plug Type: EU / UK / US</li>
+      <li>Bundle: Single / Pack of 2 / Pack of 4 / Family Pack</li>
+    </ul>
+    <p>Select color</p>
+    <p>Select size</p>
+    <p>Size guide</p>
+    <p>This item runs small</p>
+    <p>True to size</p>
+    <p>This item runs large</p>
+    <p>Out of stock in the selected combination</p>
+  </section>
+
+  <section id="pricing">
+    <h2>9. Pricing, Discounts, and Currency</h2>
+    <ul>
+      <li>$19.99</li>
+      <li>€49.90</li>
+      <li>£17.50</li>
+      <li>AED 199</li>
+      <li>Discounted price: $74.99</li>
+      <li>Regular price: $99.99</li>
+      <li>You save: $25.00</li>
+      <li>Tax included</li>
+      <li>Taxes calculated at checkout</li>
+      <li>Price per item</li>
+      <li>Price per 100 ml</li>
+      <li>Best price in the last 30 days</li>
+    </ul>
+  </section>
+
+  <section id="shipping-returns">
+    <h2>10. Shipping and Returns</h2>
+    <ul>
+      <li>Courier delivery — tomorrow, 10:00 AM to 6:00 PM</li>
+      <li>Express delivery within 2 hours</li>
+      <li>Store pickup available today after 3:00 PM</li>
+      <li>Pickup point delivery — free of charge</li>
+      <li>Free shipping on orders over $50</li>
+      <li>Shipping cost is calculated at checkout</li>
+      <li>Order processing time: 1–2 business days</li>
+      <li>You may return eligible items within 14 days of delivery</li>
+      <li>Custom-made items cannot be returned</li>
+      <li>For returns, please keep the packaging and receipt</li>
+      <li>Refunds will be issued to the original payment method</li>
+      <li>Some hygiene-related products are non-returnable</li>
+    </ul>
+  </section>
+
+  <section id="payment">
+    <h2>11. Payment Methods</h2>
+    <ul>
+      <li>Credit or debit card</li>
+      <li>Apple Pay</li>
+      <li>Google Pay</li>
+      <li>Cash on delivery</li>
+      <li>Installment plan</li>
+      <li>Pay in 4</li>
+      <li>Bank transfer for business customers</li>
+      <li>Gift card</li>
+      <li>Enter promo code</li>
+      <li>Promo code applied successfully</li>
+      <li>Promo code is invalid</li>
+      <li>Promo code has expired</li>
+      <li>This promo code does not apply to this product</li>
+    </ul>
+  </section>
+
+  <section id="reviews">
+    <h2>12. Customer Reviews</h2>
+    <ul>
+      <li>Excellent product, I have been using it for two weeks and everything works perfectly. Fast shipping and secure packaging.</li>
+      <li>Overall good, but the color is slightly darker than in the photos. Quality is still fine.</li>
+      <li>Arrived quickly and without damage. The manual is translated a bit oddly, but it is still understandable.</li>
+      <li>Great value for the money. I bought it on sale and I am very happy with the purchase.</li>
+      <li>The box was dented, so I expected the worst, but the actual product was fine.</li>
+      <li>It did not fit me well. I usually wear size M, but for this one I would recommend sizing up to L.</li>
+      <li>Very quiet operation, almost silent. Perfect for a small apartment.</li>
+      <li>The cable is shorter than I expected, so keep that in mind.</li>
+      <li>I thought the plastic would feel cheap, but it has held up really well so far.</li>
+      <li>10/10, would buy again.</li>
+      <li>Meh... I expected more, especially at this price point.</li>
+      <li>The labels on the box are in five languages mixed together 😅</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>13. Questions and Answers</h2>
+    <div class="card">
+      <p><strong>Q:</strong> Will this work with iPhone 15?</p>
+      <p><strong>A:</strong> Yes, if your device supports USB-C and the specified charging standard.</p>
+      <p><strong>Q:</strong> Does it come with a warranty?</p>
+      <p><strong>A:</strong> Yes, it includes an official 12-month manufacturer warranty.</p>
+      <p><strong>Q:</strong> Is it dishwasher safe?</p>
+      <p><strong>A:</strong> Removable parts are dishwasher safe, but the main unit is not.</p>
+      <p><strong>Q:</strong> Is this an original product?</p>
+      <p><strong>A:</strong> Yes, we only sell genuine products from authorized suppliers.</p>
+    </div>
+  </section>
+
+  <section id="states-errors">
+    <h2>14. Errors, Empty States, and Warnings</h2>
+    <ul>
+      <li class="error">Unable to add item to cart</li>
+      <li class="error">Failed to update quantity</li>
+      <li class="warning">Not enough items in stock</li>
+      <li class="warning">You have exceeded the maximum available quantity</li>
+      <li>Your cart is empty</li>
+      <li>You have no saved items yet</li>
+      <li>Your comparison list is empty</li>
+      <li class="error">Invalid email format</li>
+      <li class="warning">Please select a size</li>
+      <li class="warning">Please select a color</li>
+      <li class="error">Something went wrong</li>
+      <li>Please refresh the page and try again</li>
+      <li>Your session has expired</li>
+      <li>Please sign in again</li>
+      <li>This product cannot be shipped to your region</li>
+      <li>This item is available for pickup only</li>
+    </ul>
+  </section>
+
+  <section id="legal-policy">
+    <h2>15. Legal and Policy Text</h2>
+    <ul>
+      <li>By clicking “Place Order,” you agree to the terms of the public offer.</li>
+      <li>By continuing, you accept our Privacy Policy and consent to the processing of personal data.</li>
+      <li>Product specifications may be changed by the manufacturer without prior notice.</li>
+      <li>Information on this website does not constitute a legally binding offer unless explicitly stated otherwise.</li>
+      <li>All trademarks are the property of their respective owners.</li>
+      <li>Delivery times are estimates and may vary depending on region and carrier workload.</li>
+    </ul>
+  </section>
+
+  <section id="messy-segments">
+    <h2>16. Messy and Mixed Segments</h2>
+    <ul>
+      <li>black / schwarz / noir / ??? limited stock!!!</li>
+      <li>Buy 2 get 1 free* (*terms &amp; conditions apply)</li>
+      <li>100% cotton, machine wash @30C, do not tumble dry</li>
+      <li>up to 8h battery life / actually around 6-7h if volume is high</li>
+      <li>1× main unit, 2× filters, 1× USB-C cable, quick-start guide</li>
+      <li>Color may vary slightly due to screen settings</li>
+      <li>Works out of the box — no app needed... mostly</li>
+      <li>Not bad tbh, but shipping took forever :(</li>
+      <li>Super comfy!!! would defs recommend</li>
+      <li>&lt;strong&gt;Sale ends tonight&lt;/strong&gt;</li>
+      <li>SKU: AB-2390-XL / Batch: 04-2026 / Rev.2</li>
+      <li>Save big now — final clearance, no restock expected</li>
+    </ul>
+  </section>
+
+  <section id="checkout-flow">
+    <h2>17. Checkout Flow</h2>
+    <ul>
+      <li>Shopping Cart</li>
+      <li>Shipping Address</li>
+      <li>Billing Information</li>
+      <li>Delivery Method</li>
+      <li>Payment Details</li>
+      <li>Review Your Order</li>
+      <li>Place Order</li>
+      <li>Order confirmed</li>
+      <li>Thank you for your purchase</li>
+      <li>Your order number is #10493857</li>
+      <li>You will receive a confirmation email shortly</li>
+    </ul>
+  </section>
+
+  <section id="forms">
+    <h2>18. Form Labels and Inputs</h2>
+    <ul>
+      <li>First Name</li>
+      <li>Last Name</li>
+      <li>Email Address</li>
+      <li>Phone Number</li>
+      <li>Street Address</li>
+      <li>Apartment, suite, etc. (optional)</li>
+      <li>City</li>
+      <li>Postal Code</li>
+      <li>Country</li>
+      <li>State / Province / Region</li>
+      <li>Company Name (optional)</li>
+      <li>Leave delivery instructions</li>
+      <li>I want to receive updates and special offers by email</li>
+    </ul>
+  </section>
+
+  <section id="microcopy">
+    <h2>19. Short Microcopy</h2>
+    <p>New</p>
+    <p>Hot</p>
+    <p>Sale</p>
+    <p>Sold out</p>
+    <p>Limited</p>
+    <p>Exclusive</p>
+    <p>Recommended</p>
+    <p>Trending</p>
+    <p>Eco</p>
+    <p>Bestseller</p>
+  </section>
+
+  <section id="footer">
+    <h2>20. Footer Links</h2>
+    <ul>
+      <li>About Us</li>
+      <li>Contact Us</li>
+      <li>Shipping Information</li>
+      <li>Returns and Refunds</li>
+      <li>Terms and Conditions</li>
+      <li>Privacy Policy</li>
+      <li>Cookie Policy</li>
+      <li>Track Your Order</li>
+      <li>Store Locator</li>
+      <li>Careers</li>
+    </ul>
+  </section>
+</body>
+</html>
