@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <!--           ConveyThis Script Start         -->
+<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
+<!--           ConveyThis Script End         -->
   <title>AI Translation H1 and Meta Test Page</title>
   <meta
     name="description"
