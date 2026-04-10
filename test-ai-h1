@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI Translation H1 and Meta Test Page</title>
+  <meta
+    name="description"
+    content="This page is used to test AI-generated H1 tags and meta descriptions for translation features."
+  />
+  <meta
+    name="keywords"
+    content="AI generation, H1 test, meta description, translation, SEO"
+  />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="AI Translation H1 and Meta Test Page" />
+  <meta
+    property="og:description"
+    content="Testing how AI-generated H1 and meta content behave in translation workflows."
+  />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+  <h1>I'm checking my AI-generated H1 and meta feature for translation</h1>
+
+  <p>
+    This sample page is intended for testing translation behavior of the H1 heading
+    and meta description.
+  </p>
+</body>
+</html>
