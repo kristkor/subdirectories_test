@@ -375,6 +375,115 @@
         </div>
       </div>
     </section>
+    <section>
+  <h2>Icon Translation Stress Test</h2>
+
+  <h3>1. Emoji + visible text</h3>
+  <ul>
+    <li>🛒 Add to cart</li>
+    <li>❤️ Add to wishlist</li>
+    <li>🔍 Search</li>
+    <li>⚙️ Settings</li>
+    <li>📦 Track order</li>
+    <li>🚚 Free shipping</li>
+    <li>🔒 Secure checkout</li>
+    <li>⭐ Best seller</li>
+    <li>🔥 Hot deal</li>
+    <li>🆕 New arrival</li>
+  </ul>
+
+  <h3>2. Icon-like unicode symbols</h3>
+  <ul>
+    <li>← Back</li>
+    <li>→ Continue</li>
+    <li>× Close</li>
+    <li>✓ In stock</li>
+    <li>! Warning</li>
+    <li>? Help</li>
+    <li># Order number</li>
+    <li>@ Contact us</li>
+  </ul>
+
+  <h3>3. Mixed icon + UI label</h3>
+  <p>🛍️ Shop now</p>
+  <p>💳 Pay with card</p>
+  <p>📍 Store locator</p>
+  <p>📞 Call us</p>
+  <p>✉️ Email support</p>
+  <p>👤 My account</p>
+  <p>🧾 Billing details</p>
+  <p>🏷️ Apply promo code</p>
+
+  <h3>4. Emojis inside buttons</h3>
+  <button>🛒 Add to cart</button>
+  <button>❤️ Save for later</button>
+  <button>📦 Track your order</button>
+  <button>🔄 Refresh</button>
+  <button>❌ Remove item</button>
+
+  <h3>5. SVG with aria-label</h3>
+  <button aria-label="Search">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" fill="none"></circle>
+      <line x1="16.65" y1="16.65" x2="21" y2="21" stroke="currentColor"></line>
+    </svg>
+  </button>
+
+  <button aria-label="Close modal">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+      <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor"></line>
+      <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor"></line>
+    </svg>
+  </button>
+
+  <button aria-label="Open menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+      <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor"></line>
+      <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor"></line>
+      <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor"></line>
+    </svg>
+  </button>
+
+  <h3>6. Img alt / title tests</h3>
+  <img src="https://via.placeholder.com/40" alt="Shopping cart icon" title="Cart">
+  <img src="https://via.placeholder.com/40" alt="Heart icon for wishlist" title="Wishlist">
+  <img src="https://via.placeholder.com/40" alt="Truck icon for delivery" title="Shipping">
+
+  <h3>7. Screen-reader only labels</h3>
+  <button>
+    <span aria-hidden="true">🔍</span>
+    <span class="sr-only">Search products</span>
+  </button>
+
+  <button>
+    <span aria-hidden="true">❤️</span>
+    <span class="sr-only">Add to wishlist</span>
+  </button>
+
+  <button>
+    <span aria-hidden="true">🛒</span>
+    <span class="sr-only">Open shopping cart</span>
+  </button>
+
+  <h3>8. Tooltip/title attributes</h3>
+  <span title="Secure payment">🔒</span>
+  <span title="Free returns">↩️</span>
+  <span title="Compare products">⚖️</span>
+  <span title="Customer reviews">⭐</span>
+
+  <h3>9. Mixed text that often breaks</h3>
+  <p>🛒 Cart (3)</p>
+  <p>❤️ Wishlist (0)</p>
+  <p>📦 Order #10493857</p>
+  <p>🔔 Notify me when back in stock</p>
+  <p>🚚 Delivery in 1–2 business days</p>
+  <p>⭐ Rated 4.8/5 based on 124 reviews</p>
+
+  <h3>10. No-translate control cases</h3>
+  <p class="conveythis-no-translate">🛒 Add to cart</p>
+  <p class="conveythis-no-translate">❤️ Wishlist</p>
+  <p class="conveythis-no-translate">🔍 Search</p>
+</section>
 
     <section class="card">
       <h2>Dynamic counters and auto-updating text</h2>
