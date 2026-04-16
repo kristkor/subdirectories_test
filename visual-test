@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Translation Editor - Test Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .content-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .translatable {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .translatable:hover {
+            background: #ffc107;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .translatable.translated {
+            background: #d4edda;
+        }
+
+        .translatable.translated:hover {
+            background: #28a745;
+            color: white;
+        }
+
+        .important {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #17a2b8;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .code-snippet {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .caption {
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .inline-image {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin: 0 4px;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .link-list li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .link-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        .link-list a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .link-list a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .glossary-term {
+            border-bottom: 2px dotted #667eea;
+            cursor: help;
+            position: relative;
+        }
+
+        .glossary-term:hover::after {
+            content: attr(data-definition);
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background: #2d2d2d;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            white-space: nowrap;
+            font-size: 0.85em;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .quote-box {
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            background: #f8f9fa;
+            font-style: italic;
+        }
+
+        .button-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+
+        .button-link:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 8px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .svg-icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+
+        .multiline-translatable {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .nested-content {
+            padding-left: 20px;
+            border-left: 3px solid #e0e0e0;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><span class="translatable">Visual Translation Editor</span></h1>
+        <p><span class="translatable">Test page with various content types and translatable elements</span></p>
+    </div>
+
+    <div class="content-section">
+        <h2><span class="translatable">Welcome Section</span></h2>
+        <p>
+            <span class="translatable">This is a comprehensive test page for a visual translation editor.</span>
+            <span class="translatable">It contains multiple types of content including</span>
+            <span class="translatable important">important text</span>,
+            <span class="highlight translatable">highlighted sections</span>,
+            <span class="translatable">and various media elements.</span>
+        </p>
+        
+        <div class="image-container">
+            <img src="https://via.placeholder.com/800x400/667eea/ffffff?text=Main+Header+Image" alt="Header image">
+            <p class="caption translatable">Figure 1: This is a sample image with a translatable caption</p>
+        </div>
+
+        <p>
+            <span class="translatable">You can also have text with inline images like this</span>
+            <img class="inline-image" src="https://via.placeholder.com/24/28a745/ffffff?text=✓" alt="check icon">
+            <span class="translatable">to indicate success or</span>
+            <img class="inline-image" src="https://via.placeholder.com/24/dc3545/ffffff?text=✗" alt="cross icon">
+            <span class="translatable">to indicate errors.</span>
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2><span class="translatable">Links and Navigation</span></h2>
+        <p><span class="translatable">Here are different types of links to test:</span></p>
+        
+        <ul class="link-list">
+            <li><a href="#section1"><span class="translatable">Internal anchor link to section 1</span></a></li>
+            <li><a href="https://www.example.com"><span class="translatable">External link to Example.com</span></a></li>
+            <li><a href="mailto:test@example.com"><span class="translatable">Email link for contact</span></a></li>
+            <li><a href="tel:+1234567890"><span class="translatable">Phone number link</span></a></li>
+            <li><a href="https://github.com/example/repo" target="_blank"><span class="translatable">Link that opens in new tab</span></a></li>
+        </ul>
+
+        <div style="margin-top: 20px;">
+            <a href="#" class="button-link"><span class="translatable">Primary Action Button</span></a>
+            <a href="#" class="button-link" style="background: #28a745;"><span class="translatable">Success Action</span></a>
+            <a href="#" class="button-link" style="background: #dc3545;"><span class="translatable">Danger Action</span></a>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2><span class="translatable">Text with Special Formatting</span></h2>
+        
+        <p>
+            <span class="translatable">This paragraph contains a</span>
+            <span class="glossary-term translatable" data-definition="A technical term that needs explanation">glossary term</span>
+            <span class="translatable">with a hover tooltip. It also includes</span>
+            <code class="code-snippet translatable">code snippets</code>
+            <span class="translatable">and</span>
+            <span class="translatable translated">already translated text</span>.
+        </p>
+
+        <div class="quote-box">
+            <span class="translatable">"This is an important quote that needs to be translated carefully while preserving its formatting and emphasis."</span>
+            <br>
+            <span style="font-size: 0.9em; color: #6c757d;">— <span class="translatable">Anonymous Author</span></span>
+        </div>
+
+        <p>
+            <span class="translatable">Text can also contain</span>
+            <strong><span class="translatable important">strongly emphasized content</span></strong>,
+            <em><span class="translatable">italicized phrases</span></em>,
+            <span class="translatable">and even</span>
+            <u><span class="translatable">underlined text</span></u>.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2><span class="translatable">Complex Nested Content</span></h2>
+        
+        <div class="nested-content">
+            <p>
+                <span class="translatable">This section demonstrates nested translatable content.</span>
+                <span class="translatable">Each sentence is wrapped separately to allow granular translation.</span>
+            </p>
+            
+            <div class="nested-content">
+                <p class="multiline-translatable translatable">
+                    This is a multi-line translatable block that spans several lines and contains various formatting elements.
+                    It should be treated as a single translatable unit despite the line breaks.
+                </p>
+                
+                <p>
+                    <span class="translatable">Nested content can contain</span>
+                    <a href="#"><span class="translatable">links within links</span></a>
+                    <span class="translatable">and</span>
+                    <span class="highlight"><span class="translatable">highlighted translatable text</span></span>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2><span class="translatable">Image Gallery</span></h2>
+        
+        <div class="grid-container">
+            <div class="card">
+                <img src="https://via.placeholder.com/250x150/667eea/ffffff?text=Image+1" alt="Sample 1" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">
+                <h3><span class="translatable">Gallery Item 1</span><span class="badge">New</span></h3>
+                <p><span class="translatable">Description of the first gallery item with translatable content.</span></p>
+            </div>
+            
+            <div class="card">
+                <img src="https://via.placeholder.com/250x150/28a745/ffffff?text=Image+2" alt="Sample 2" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">
+                <h3><span class="translatable">Gallery Item 2</span><span class="badge" style="background: #28a745;">Featured</span></h3>
+                <p><span class="translatable">Description of the second gallery item with different styling.</span></p>
+            </div>
+            
+            <div class="card">
+                <img src="https://via.placeholder.com/250x150/dc3545/ffffff?text=Image+3" alt="Sample 3" style="width: 100%; border-radius: 4px; margin-bottom: 10px;">
+                <h3><span class="translatable">Gallery Item 3</span><span class="badge" style="background: #dc3545;">Sale</span></h3>
+                <p><span class="translatable">Description of the third gallery item with urgent styling.</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2><span class="translatable">Data Table with Mixed Content</span></h2>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th><span class="translatable">Product Name</span></th>
+                        <th><span class="translatable">Category</span></th>
+                        <th><span class="translatable">Price</span></th>
+                        <th><span class="translatable">Status</span></th>
+                        <th><span class="translatable">Actions</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img class="inline-image" src="https://via.placeholder.com/24/667eea/ffffff?text=P" alt="product icon">
+                            <span class="translatable">Premium Widget</span>
+                        </td>
+                        <td><span class="translatable">Electronics</span></td>
+                        <td>$299.99</td>
+                        <td><span class="badge" style="background: #28a745;"><span class="translatable">In Stock</span></span></td>
+                        <td><a href="#"><span class="translatable">View Details</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img class="inline-image" src="https://via.placeholder.com/24/28a745/ffffff?text=S" alt="product icon">
+                            <span class="translatable">Standard Gadget</span>
+                        </td>
+                        <td><span class="translatable">Accessories</span></td>
+                        <td>$149.99</td>
+                        <td><span class="badge" style="background: #ffc107; color: #000;"><span class="translatable">Low Stock</span></span></td>
+                        <td><a href="#"><span class="translatable">View Details</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img class="inline-image" src="https://via.placeholder.com/24/dc3545/ffffff?text=D" alt="product icon">
+                            <span class="translatable">Deluxe Device</span>
+                        </td>
+                        <td><span class="translatable">Electronics</span></td>
+                        <td>$499.99</td>
+                        <td><span class="badge" style="background: #dc3545;"><span class="translatable">Out of Stock</span></span></td>
+                        <td><a href="#"><span class="translatable">Notify Me</span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2><span class="translatable">Mixed Media and Icons</span></h2>
+        
+        <p>
+            <svg class="svg-icon" viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            <span class="translatable">This text includes an SVG icon before it.</span>
+        </p>
+
+        <div class="image-container">
+            <img src="https://via.placeholder.com/600x300/17a2b8/ffffff?text=Infographic+Placeholder" alt="Infographic">
+            <p class="caption">
+                <span class="translatable">Figure 2: Complex infographic that combines</span>
+                <span class="highlight translatable">visual elements</span>
+                <span class="translatable">with</span>
+                <a href="#"><span class="translatable">interactive links</span></a>
+            </p>
+        </div>
+    </div>
+
+    <div class="content-section" id="section1">
+        <h2><span class="translatable">Special Characters and Formatting</span></h2>
+        
+        <p>
+            <span class="translatable">This section tests special characters: © ® ™ € £ ¥ • † ‡ § ¶</span>
+        </p>
+        
+        <p>
+            <span class="translatable">Mathematical symbols: ± × ÷ ≠ ≤ ≥ ∞ ∑ ∏ √</span>
+        </p>
+        
+        <p>
+            <span class="translatable">Arrows and symbols: → ← ↑ ↓ ⇒ ⇐ ⇑ ⇓ ☺ ☻ ♠ ♣ ♥ ♦</span>
+        </p>
+        
+        <p>
+            <span class="translatable">Accented characters: café résumé naïve château Zürich</span>
+        </p>
+
+        <p>
+            <span class="translatable">Currency amounts:</span>
+            <span class="translatable important">$1,234.56</span>,
+            <span class="translatable important">€987.65</span>,
+            <span class="translatable important">£543.21</span>
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2><span class="translatable">Interactive Elements Status</span></h2>
+        
+        <p>
+            <span class="translatable">Translation progress can be tracked with different states:</span>
+        </p>
+        
+        <div style="margin: 20px 0;">
+            <p><span class="translatable">Untranslated text (yellow background)</span></p>
+            <p><span class="translatable translated">Translated text (green background)</span></p>
+            <p><span class="translatable important">Important untranslated text (red color)</span></p>
+            <p><span class="highlight translatable">Highlighted translatable section</span></p>
+        </div>
+
+        <div class="quote-box">
+            <span class="translatable">
+                "The visual translation editor should preserve all formatting, links, images, and special characters while allowing each text segment to be edited independently."
+            </span>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2><span class="translatable">Final Notes</span></h2>
+        
+        <p>
+            <span class="translatable">This test page includes:</span>
+        </p>
+        
+        <ul style="padding-left: 20px; margin: 15px 0;">
+            <li><span class="translatable">Multiple image types (header images, inline icons, gallery items)</span></li>
+            <li><span class="translatable">Various link formats (internal anchors, external URLs, email, phone)</span></li>
+            <li><span class="translatable">Nested translatable spans with different styling</span></li>
+            <li><span class="translatable">Tables with mixed content</span></li>
+            <li><span class="translatable">Special characters and formatting</span></li>
+            <li><span class="translatable">Interactive hover effects and tooltips</span></li>
+            <li><span class="translatable">Button-style links and badges</span></li>
+            <li><span class="translatable">Code snippets and technical content</span></li>
+        </ul>
+
+        <p style="margin-top: 20px; text-align: center;">
+            <a href="#" class="button-link">
+                <span class="translatable">Start Translation Process</span>
+            </a>
+        </p>
+    </div>
+
+    <script>
+        // Simple click handler to demonstrate interactivity
+        document.querySelectorAll('.translatable').forEach(element => {
+            element.addEventListener('click', function(e) {
+                if (!this.classList.contains('translated')) {
+                    const confirmed = confirm('Mark "' + this.textContent.trim().substring(0, 50) + '..." as translated?');
+                    if (confirmed) {
+                        this.classList.add('translated');
+                    }
+                } else {
+                    const confirmed = confirm('Mark "' + this.textContent.trim().substring(0, 50) + '..." as untranslated?');
+                    if (confirmed) {
+                        this.classList.remove('translated');
+                    }
+                }
+                e.preventDefault();
+            });
+        });
+
+        // Prevent default behavior for demo links
+        document.querySelectorAll('a[href="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('This is a demo link in the translation editor test page.');
+            });
+        });
+    </script>
+</body>
+</html>
