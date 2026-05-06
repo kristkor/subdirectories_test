@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI Translation Crash Test</title>
+  <!--           ConveyThis Script Start         -->
+<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
+<!--           ConveyThis Script End         -->
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      line-height: 1.6;
+      padding: 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 50px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    i {
+      width: 28px;
+      color: #3b82f6;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #111827;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .warning {
+      background: #fff3cd;
+      border: 1px solid #ffe69c;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+
+    .success {
+      background: #d1fae5;
+      border: 1px solid #6ee7b7;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+
+    .conveythis-no-translate {
+      background: #111827;
+      color: white;
+      padding: 20px;
+      border-radius: 14px;
+      margin-top: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="badge">
+    AI Translation Stress Test
+  </div>
+
+  <h1>
+    <i class="fa-solid fa-language"></i>
+    AI Translation Crash Test Page
+  </h1>
+
+  <p>
+    This page is designed to test how AI translation models handle ambiguous,
+    technical, emotional, contextual, and UI-focused English.
+  </p>
+
+  <!-- BASIC UI -->
+  <h2>
+    <i class="fa-solid fa-window-maximize"></i>
+    Basic UI Text
+  </h2>
+
+  <div class="card">
+    <ul>
+      <li><i class="fa-solid fa-floppy-disk"></i> Save</li>
+      <li><i class="fa-solid fa-xmark"></i> Cancel</li>
+      <li><i class="fa-solid fa-trash"></i> Delete</li>
+      <li><i class="fa-solid fa-gear"></i> Apply changes</li>
+      <li><i class="fa-solid fa-rotate-left"></i> Restore defaults</li>
+      <li><i class="fa-solid fa-circle-exclamation"></i> Something went wrong</li>
+      <li><i class="fa-solid fa-arrow-rotate-right"></i> Try again later</li>
+      <li><i class="fa-solid fa-triangle-exclamation"></i> You have unsaved changes</li>
+    </ul>
+  </div>
+
+  <!-- AMBIGUOUS -->
+  <h2>
+    <i class="fa-solid fa-shuffle"></i>
+    Ambiguous Words
+  </h2>
+
+  <div class="card">
+    <ul>
+      <li>The file is light.</li>
+      <li>The light is broken.</li>
+      <li>I will book a table.</li>
+      <li>Read the book carefully.</li>
+      <li>The app may crash.</li>
+      <li>May I continue?</li>
+    </ul>
+  </div>
+
+  <!-- TECHNICAL -->
+  <h2>
+    <i class="fa-solid fa-code"></i>
+    Technical Text
+  </h2>
+
+  <div class="card">
+    <ul>
+      <li>The request timed out after 30 seconds.</li>
+      <li>Failed to parse the JSON response.</li>
+      <li>The authentication token has expired.</li>
+      <li>This field must be unique.</li>
+      <li>The database migration cannot be rolled back.</li>
+      <li>Enable debug mode to view detailed logs.</li>
+    </ul>
+  </div>
+
+  <!-- ERRORS -->
+  <h2>
+    <i class="fa-solid fa-bug"></i>
+    Error Messages
+  </h2>
+
+  <div class="grid">
+
+    <div class="warning">
+      <i class="fa-solid fa-envelope"></i>
+      Invalid email address.
+    </div>
+
+    <div class="warning">
+      <i class="fa-solid fa-lock"></i>
+      Password must contain at least 8 characters.
+    </div>
+
+    <div class="warning">
+      <i class="fa-solid fa-ban"></i>
+      Access denied.
+    </div>
+
+    <div class="warning">
+      <i class="fa-solid fa-upload"></i>
+      File upload failed.
+    </div>
+
+  </div>
+
+  <!-- TONES -->
+  <h2>
+    <i class="fa-solid fa-comments"></i>
+    Tone Test
+  </h2>
+
+  <div class="card">
+    <p><strong>Formal:</strong> Your request has been received and will be processed shortly.</p>
+    <p><strong>Friendly:</strong> Got it! We’ll take care of this soon.</p>
+    <p><strong>Urgent:</strong> Immediate action is required to prevent data loss.</p>
+    <p><strong>Casual:</strong> No worries, everything looks good.</p>
+  </div>
+
+  <!-- NO TRANSLATE -->
+  <h2>
+    <i class="fa-solid fa-language"></i>
+    No Translate Block
+  </h2>
+
+  <div class="conveythis-no-translate">
+    <h3>
+      <i class="fa-solid fa-shield"></i>
+      Protected Content
+    </h3>
+
+    <p>
+      This section should NOT be translated by AI translation engines.
+    </p>
+
+    <p>
+      Product Name: <strong>GitHam AI Suite</strong>
+    </p>
+
+    <p>
+      API Key: <code>GHM-AX92-ZX81-PRIVATE</code>
+    </p>
+
+    <p>
+      Command: <code>npm run deploy-production</code>
+    </p>
+
+    <p>
+      URL: <code>https://api.githam.dev/v1/internal</code>
+    </p>
+  </div>
+
+  <!-- FINAL -->
+  <h2>
+    <i class="fa-solid fa-fire"></i>
+    Final Stress Test
+  </h2>
+
+  <div class="success">
+    If the app crashes after the latest update, clear the cache, restart the
+    device, and try again. If the issue persists, contact support and include
+    screenshots, logs, your browser version, and a short description of what
+    happened before the crash.
+  </div>
+
+</body>
+</html>
