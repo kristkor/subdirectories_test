@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAG placeholder test</title>
+<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_3ca04942aed72e306000b2a8d49a7252"></script>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; max-width: 820px; margin: 32px auto; padding: 0 16px; color: #1c1c1c; background: #fff; }
+  h1 { font-size: 22px; }
+  .case { border: 1px solid #ddd; border-radius: 6px; padding: 12px 14px; margin: 12px 0; }
+  .case h2 { font-size: 13px; font-weight: 600; margin: 0 0 6px; color: #666; text-transform: uppercase; letter-spacing: .04em; }
+  .case.leak { border-color: #c62828; background: #fdecea; }
+  .case.leak h2::after { content: "  <TAG1> LEAK"; color: #c62828; }
+  #status { position: sticky; top: 0; background: #f4f4f4; border: 1px solid #ccc; padding: 8px 12px; border-radius: 6px; font-size: 14px; z-index: 10; }
+</style>
+</head>
+<body>
+
+<div id="status" class="notranslate">Waiting for translation… switch language with the widget (es / fr / de / nl reproduce best — ru and sr may go to Gemini first).</div>
+
+<h1>Product page test (run 0929a)</h1>
+<p>Each block below is one segment. Change <code>0929a</code> everywhere to a new value for a fresh run, otherwise translations come from the saved copy.</p>
+
+<div class="case" data-case="en dash list (ardusimple)">
+  <h2 class="notranslate">1. En dash – list after &lt;br&gt;</h2>
+  <p>Product Change History (run 0929a):<br>
+&ndash; AS-RTK2B-F9P-L1L2-NH-00: pre-production version<br>
+&ndash; AS-RTK2B-F9P-L1L2-NH-01: initial production version<br>
+&ndash; AS-RTK2B-F9P-L1L2-NH-02: improvements on USB connector<br>
+&ndash; AS-RTK2B-F9P-L1L2-NH-03: USB upgraded to USB-C, increased socket power, new LED location, longer SMA for panel mount</p>
+</div>
+
+<div class="case" data-case="en dash includes">
+  <h2 class="notranslate">2. En dash – "Includes" list</h2>
+  <p>Includes (run 0929a):<br>
+&ndash; 1 simpleRTK2B Budget board (ZED-F9P)<br>
+&ndash; 1 u-blox multiband antenna with a 5 meter cable</p>
+</div>
+
+<div class="case" data-case="arrow">
+  <h2 class="notranslate">3. Arrow →</h2>
+  <p>In the main menu, go to&nbsp;<strong>Communication</strong>&nbsp;&rarr;&nbsp;<strong>COM port settings</strong> and press save (run 0929a).</p>
+</div>
+
+<div class="case" data-case="em dash">
+  <h2 class="notranslate">4. Em dash —</h2>
+  <p><strong>THE RESONANCE Academy&reg;</strong> &mdash; A <strong>comprehensive facilitator training of 200 hours</strong> that gives you safe tools (run 0929a).</p>
+</div>
+
+<div class="case" data-case="euro">
+  <h2 class="notranslate">5. Euro sign €</h2>
+  <p>Security deposit for the apartment (run 0929a): <strong>&euro; 700,00</strong></p>
+</div>
+
+<div class="case" data-case="greater-or-equal">
+  <h2 class="notranslate">6. Greater-or-equal ≥</h2>
+  <p><b>Purity:</b> &ge; 95 % (SDS-PAGE), tested in every batch (run 0929a)</p>
+</div>
+
+<div class="case" data-case="breadcrumb">
+  <h2 class="notranslate">7. Right angle quote ›</h2>
+  <p>kristinkor.com<span> &rsaquo; academics</span><span> &rsaquo; professional education</span><span> &rsaquo; entrepreneur course 0929a</span></p>
+</div>
+
+<div class="case" data-case="email">
+  <h2 class="notranslate">8. Email address</h2>
+  <p><b>E-mail:</b> support-0929a@kristinkor.com<br><b>Phone number:</b> +32 (0)15 800 620</p>
+</div>
+
+<div class="case" data-case="control">
+  <h2 class="notranslate">9. Control — plain hyphen, no symbols</h2>
+  <p>This sentence has only a normal hyphen - and should always translate cleanly (run 0929a).</p>
+</div>
+
+<script>
+  // Browsers parse a leaked <TAG1> as a real (unknown) element named "tag1".
+  function checkLeaks() {
+    var cases = document.querySelectorAll('.case');
+    var leaks = [];
+    cases.forEach(function (el) {
+      var hit = Array.prototype.some.call(el.querySelectorAll('*'), function (n) {
+        return /^tag\d+$/i.test(n.tagName);
+      }) || /<\/?TAG\d+>|&lt;\/?TAG\d+&gt;/i.test(el.innerHTML);
+      el.classList.toggle('leak', hit);
+      if (hit) leaks.push(el.getAttribute('data-case'));
+    });
+    var lang = document.documentElement.lang || '?';
+    document.getElementById('status').textContent = leaks.length
+      ? 'lang=' + lang + ' — <TAG1> leak in ' + leaks.length + ' block(s): ' + leaks.join(', ')
+      : 'lang=' + lang + ' — no <TAG1> leak found (yet). Rechecking every 2 s.';
+  }
+  setInterval(checkLeaks, 2000);
+</script>
+
+</body>
+</html>
