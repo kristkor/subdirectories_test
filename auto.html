@@ -74,7 +74,21 @@
   .row.total { font-weight: 600; }
   .ok { color: #1f9d55; }
   html.dark .ok { color: #5ad48f; }
+  .band { min-height: 86vh; display: flex; align-items: center; padding: 80px 48px; }
+  .band--short { min-height: 0; padding: 48px; }
+  .band--dark { background-color: #0f1218; color: #e8eaf0; }
+  .band--light { background-color: #ffffff; color: #14171f; }
+  .band__in { max-width: 640px; }
+  .band h2 { font-size: clamp(30px, 3.6vw, 46px); line-height: 1.1; margin: 0 0 18px; font-weight: 600; letter-spacing: -.02em; text-wrap: balance; }
+  .band p { font-size: 18px; line-height: 1.6; margin: 0 0 26px; opacity: .85; max-width: 34em; }
+  .band--short p { font-size: 14px; margin: 0; opacity: .7; }
+  .facts { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 20px 48px; }
+  .facts li { font-size: 15px; opacity: .85; }
+  .facts b { display: block; font-size: 32px; font-weight: 600; opacity: 1; }
+  blockquote { margin: 8px 0 0; font-size: 22px; line-height: 1.45; max-width: 30em; }
+  blockquote cite { display: block; margin-top: 12px; font-size: 15px; font-style: normal; opacity: .7; }
   @media (max-width: 880px) {
+    .band { padding: 64px 20px; }
     main { grid-template-columns: 1fr; padding: 48px 20px 140px; }
     header { padding: 18px 20px; gap: 16px; }
     header a.hide-s { display: none; }
@@ -104,6 +118,45 @@
       <div class="row total"><span>Net for the month</span><span>€18,240.55</span></div>
     </section>
   </main>
+
+  <!-- Alternating solid light and dark bands: scroll past them and the Auto
+       switcher in the corner turns dark over the dark ones and light again.
+       Solid colours on purpose: a gradient or photo reads as "image". -->
+  <section class="band band--dark">
+    <div class="band__in">
+      <h2>Bank feeds in, matched invoices out.</h2>
+      <p>Connect your business accounts once. Every morning Ledgerly pulls yesterday's transactions and pairs each one with the invoice or receipt it belongs to.</p>
+      <ul class="facts">
+        <li><b>11,000+</b> banks connected</li>
+        <li><b>96%</b> of transactions matched without you</li>
+        <li><b>9 min</b> average time to close a month</li>
+      </ul>
+    </div>
+  </section>
+  <section class="band band--light">
+    <div class="band__in">
+      <h2>Your accountant gets a finished month.</h2>
+      <p>No spreadsheets by email. Invite your accountant, and they see the same ledger you do, with every open question already flagged.</p>
+      <blockquote>“We used to lose the first week of every month to bookkeeping. Now it is a coffee on the 3rd.”<cite>Ana Ribeiro, co-founder of a four-person design studio</cite></blockquote>
+    </div>
+  </section>
+  <section class="band band--dark">
+    <div class="band__in">
+      <h2>VAT, ready before the deadline.</h2>
+      <p>Ledgerly tracks what you owe as you go and files the return when you approve it. You see the number weeks ahead, not the night before.</p>
+    </div>
+  </section>
+  <section class="band band--light">
+    <div class="band__in">
+      <h2>One plan, every feature.</h2>
+      <p>€29 a month for one business, unlimited transactions, cancel any time.</p>
+      <a class="start" href="#">Start a free month</a>
+    </div>
+  </section>
+  <footer class="band band--dark band--short">
+    <div class="band__in"><p>Ledgerly · Bookkeeping for small teams · Made in Lisbon</p></div>
+  </footer>
+
   <script>
     (function () {
       var btn = document.getElementById('mode');
