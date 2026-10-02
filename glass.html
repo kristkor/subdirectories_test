@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halde — a mountain hut above the treeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap">
+<style>
+  /* Glass showcase: a painted dusk landscape fills the page, so the frosted
+     switcher in the bottom-right corner sits over sky and ridges. */
+  :root {
+    --sky-top: #1f2a4d;
+    --sky-mid: #5b5f8f;
+    --sky-low: #e48f6e;
+    --sun: #ffd9a8;
+    --ridge-far: #6d6a93;
+    --ridge-mid: #3f3f6b;
+    --ridge-near: #232543;
+    --ink: #fdf8f3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font-family: "Figtree", "Segoe UI", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--ridge-near);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .scene {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 42%, var(--sky-low) 74%, #f2b48a 100%);
+    overflow: hidden;
+  }
+  .sun {
+    position: absolute;
+    left: 58%;
+    top: 46%;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sun) 0 42%, rgba(255, 217, 168, .35) 46%, transparent 70%);
+  }
+  .ridges { position: absolute; inset: auto 0 0 0; width: 100%; height: 62vh; }
+  nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 28px 56px;
+    font-size: 15px;
+  }
+  nav .brand {
+    font-family: "Young Serif", Georgia, serif;
+    font-size: 26px;
+    margin-right: auto;
+    letter-spacing: .01em;
+  }
+  nav a { color: inherit; text-decoration: none; opacity: .88; }
+  nav a:hover, nav a:focus-visible { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+  .hero {
+    position: relative;
+    z-index: 2;
+    padding: 9vh 56px 0;
+    max-width: 760px;
+  }
+  .hero h1 {
+    font-family: "Young Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(44px, 6.4vw, 92px);
+    line-height: 1.02;
+    margin: 0 0 22px;
+    text-wrap: balance;
+  }
+  .hero p {
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.55;
+    max-width: 30em;
+    margin: 0 0 34px;
+    opacity: .92;
+  }
+  .book {
+    display: inline-block;
+    padding: 15px 26px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--ridge-near);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .book:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+  .facts {
+    position: absolute;
+    z-index: 2;
+    left: 56px;
+    bottom: 48px;
+    display: flex;
+    gap: 44px;
+    font-size: 14px;
+    opacity: .9;
+  }
+  .facts b { display: block; font-family: "Young Serif", Georgia, serif; font-weight: 400; font-size: 28px; margin-bottom: 2px; }
+  @media (max-width: 720px) {
+    nav { padding: 22px 20px; gap: 18px; }
+    nav a.hide-s { display: none; }
+    .hero { padding: 6vh 20px 0; }
+    .facts { left: 20px; bottom: 96px; gap: 26px; }
+  }
+</style>
+</head>
+<body>
+  <div class="scene">
+    <div class="sun" aria-hidden="true"></div>
+    <svg class="ridges" viewBox="0 0 1440 620" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#6d6a93" d="M0 300 L140 210 L260 270 L420 150 L560 250 L700 170 L860 260 L1010 140 L1170 240 L1300 190 L1440 230 L1440 620 L0 620 Z"/>
+      <path fill="#4b4a78" d="M0 380 L180 300 L330 360 L470 280 L640 370 L800 300 L960 380 L1120 290 L1280 360 L1440 320 L1440 620 L0 620 Z"/>
+      <path fill="#3f3f6b" d="M0 460 L220 380 L380 440 L560 360 L740 450 L900 400 L1080 470 L1260 400 L1440 440 L1440 620 L0 620 Z"/>
+      <path fill="#232543" d="M0 540 L260 470 L520 530 L760 480 L1000 540 L1240 490 L1440 520 L1440 620 L0 620 Z"/>
+    </svg>
+    <nav>
+      <span class="brand">Halde</span>
+      <a href="#">The hut</a>
+      <a href="#" class="hide-s">Routes</a>
+      <a href="#" class="hide-s">Getting here</a>
+      <a href="#">Book a bed</a>
+    </nav>
+    <main class="hero">
+      <h1>A warm bunk at 2,340 metres.</h1>
+      <p>Twelve beds, a wood stove and a kitchen that serves soup until the last hikers come in. Open from June to the first snow.</p>
+      <a class="book" href="#">Check dates</a>
+    </main>
+    <div class="facts">
+      <div><b>2,340 m</b>above sea level</div>
+      <div><b>4 h</b>walk from the valley</div>
+      <div><b>12</b>beds a night</div>
+    </div>
+  </div>
+
+<!--           ConveyThis Script Start         -->
+<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
+<!--           ConveyThis Script End         -->
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ledgerly — bookkeeping that closes itself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  /* Auto showcase: a SaaS page with its own light/dark switch. The Auto theme
+     reads the colour behind the switcher, so flipping the page shows it turn
+     dark and back. The switch fires a resize event, which is what makes the
+     widget look at the background again. */
+  :root {
+    --bg: #f6f7f9;
+    --panel: #ffffff;
+    --ink: #14171f;
+    --muted: #5b6372;
+    --line: #e3e6eb;
+    --brand: #2f6bff;
+  }
+  html.dark {
+    --bg: #0f1218;
+    --panel: #171b24;
+    --ink: #e8eaf0;
+    --muted: #9aa3b5;
+    --line: #262b36;
+    --brand: #7aa2ff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .brand { font-weight: 600; font-size: 20px; margin-right: auto; }
+  .brand i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: var(--brand); margin-right: 8px; }
+  header a { color: var(--muted); text-decoration: none; }
+  header a:hover, header a:focus-visible { color: var(--ink); }
+  .mode {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+  }
+  .mode:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+  main { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 56px; padding: 72px 48px 140px; align-items: center; }
+  h1 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1.06; margin: 0 0 20px; font-weight: 600; letter-spacing: -.02em; text-wrap: balance; }
+  .lead { font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0 0 30px; max-width: 30em; }
+  .start { display: inline-block; padding: 13px 22px; border-radius: 8px; background: var(--brand); color: #fff; text-decoration: none; font-weight: 500; }
+  html.dark .start { color: #0f1218; }
+  .start:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .ledger { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .ledger h2 { font-size: 15px; font-weight: 500; color: var(--muted); margin: 0 0 14px; }
+  .row { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; }
+  .row span:last-child { font-family: "IBM Plex Mono", Consolas, monospace; }
+  .row.total { font-weight: 600; }
+  .ok { color: #1f9d55; }
+  html.dark .ok { color: #5ad48f; }
+  @media (max-width: 880px) {
+    main { grid-template-columns: 1fr; padding: 48px 20px 140px; }
+    header { padding: 18px 20px; gap: 16px; }
+    header a.hide-s { display: none; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <span class="brand"><i aria-hidden="true"></i>Ledgerly</span>
+    <a href="#" class="hide-s">Product</a>
+    <a href="#" class="hide-s">Pricing</a>
+    <a href="#">Docs</a>
+    <button class="mode" type="button" id="mode" aria-pressed="false">Dark mode</button>
+  </header>
+  <main>
+    <section>
+      <h1>Your books, closed by the 3rd of every month.</h1>
+      <p class="lead">Ledgerly matches bank feeds to invoices, flags what does not add up and hands your accountant a finished month.</p>
+      <a class="start" href="#">Start a free month</a>
+    </section>
+    <section class="ledger" aria-label="September close">
+      <h2>September close</h2>
+      <div class="row"><span>Bank transactions matched</span><span>412 / 412</span></div>
+      <div class="row"><span>Invoices reconciled</span><span>87 / 88</span></div>
+      <div class="row"><span>VAT return</span><span class="ok">Ready</span></div>
+      <div class="row total"><span>Net for the month</span><span>€18,240.55</span></div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      var btn = document.getElementById('mode');
+      btn.addEventListener('click', function () {
+        var dark = document.documentElement.classList.toggle('dark');
+        btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+        btn.textContent = dark ? 'Light mode' : 'Dark mode';
+        // The Auto theme re-reads the background on resize and scroll.
+        window.dispatchEvent(new Event('resize'));
+      });
+    })();
+  </script>
+
+<!--           ConveyThis Script Start         -->
+<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
+<!--           ConveyThis Script End         -->
+</body>
+</html>

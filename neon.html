@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulse Room — Fridays and Saturdays from 11pm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=DM+Sans:wght@400;500&display=swap">
+<style>
+  /* Neon showcase: a dark club page with a glowing perspective floor, so the
+     neon switcher in the bottom-right corner reads as part of the room. */
+  :root {
+    --night: #0a0612;
+    --violet: #1b0f33;
+    --pink: #ff2e88;
+    --cyan: #00f0ff;
+    --text: #f1ecff;
+    --muted: #b6a9d6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font-family: "DM Sans", "Segoe UI", Arial, sans-serif;
+    background: var(--night);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .room {
+    position: relative;
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 80% 100%, rgba(255, 46, 136, .32), transparent 55%),
+      radial-gradient(ellipse at 10% 0%, rgba(0, 240, 255, .18), transparent 50%),
+      linear-gradient(180deg, var(--night) 0%, var(--violet) 100%);
+    overflow: hidden;
+  }
+  .floor {
+    position: absolute;
+    left: -30%;
+    right: -30%;
+    bottom: 0;
+    height: 46vh;
+    background:
+      repeating-linear-gradient(0deg, rgba(0, 240, 255, .35) 0 1px, transparent 1px 36px),
+      repeating-linear-gradient(90deg, rgba(0, 240, 255, .35) 0 1px, transparent 1px 80px);
+    transform: perspective(380px) rotateX(58deg);
+    transform-origin: 50% 100%;
+    -webkit-mask-image: linear-gradient(0deg, #000 25%, transparent);
+    mask-image: linear-gradient(0deg, #000 25%, transparent);
+  }
+  nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 28px 56px;
+    font-size: 14px;
+  }
+  .brand {
+    font-family: "Big Shoulders Display", Impact, sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: .04em;
+    color: var(--cyan);
+    text-shadow: 0 0 8px rgba(0, 240, 255, .8), 0 0 22px rgba(0, 240, 255, .45);
+    margin-right: auto;
+  }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover, nav a:focus-visible { color: var(--text); }
+  main {
+    position: relative;
+    z-index: 2;
+    padding: 8vh 56px 0;
+    max-width: 900px;
+  }
+  .date { color: var(--pink); font-weight: 500; margin: 0 0 10px; font-size: 17px; }
+  h1 {
+    font-family: "Big Shoulders Display", Impact, sans-serif;
+    font-weight: 900;
+    font-size: clamp(64px, 11vw, 168px);
+    line-height: .86;
+    margin: 0 0 26px;
+    color: #fff;
+    text-shadow: 0 0 18px rgba(255, 46, 136, .6), 0 0 48px rgba(255, 46, 136, .35);
+  }
+  .lineup { font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: var(--muted); max-width: 32em; margin: 0 0 36px; }
+  .lineup b { color: var(--text); font-weight: 500; }
+  .tickets {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 2px solid var(--cyan);
+    border-radius: 999px;
+    color: var(--cyan);
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba(0, 240, 255, .5), inset 0 0 8px rgba(0, 240, 255, .25);
+  }
+  .tickets:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; }
+  @media (max-width: 720px) {
+    nav { padding: 22px 20px; gap: 16px; }
+    nav a.hide-s { display: none; }
+    main { padding: 6vh 20px 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="room">
+    <div class="floor" aria-hidden="true"></div>
+    <nav>
+      <span class="brand">PULSE ROOM</span>
+      <a href="#">Nights</a>
+      <a href="#" class="hide-s">Residents</a>
+      <a href="#" class="hide-s">Visit</a>
+      <a href="#">Tickets</a>
+    </nav>
+    <main>
+      <p class="date">Saturday 18 October, doors 11pm</p>
+      <h1>Low Light Social</h1>
+      <p class="lineup"><b>Mira Okafor</b>, <b>Daan Velde</b> and a four-hour closing set from <b>Tomás Reyes</b>. Two rooms, one sound system, no phones on the dance floor.</p>
+      <a class="tickets" href="#">Get tickets</a>
+    </main>
+  </div>
+
+<!--           ConveyThis Script Start         -->
+<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
+<!--           ConveyThis Script End         -->
+</body>
+</html>
