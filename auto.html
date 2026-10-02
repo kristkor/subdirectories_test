@@ -3,158 +3,195 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ledgerly — bookkeeping that closes itself</title>
+<title>Ledgerly — close the month by the 3rd</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
 <style>
-  /* Auto showcase: a SaaS page with its own light/dark switch. The Auto theme
-     reads the colour behind the switcher, so flipping the page shows it turn
-     dark and back. The switch fires a resize event, which is what makes the
-     widget look at the background again. */
+  /* Auto showcase. The page is a stack of solid-colour bands, light and dark,
+     so scrolling it makes the Auto switcher in the corner flip between its
+     light and dark look. Bands use background-color only: a gradient or photo
+     under the switcher reads as "image" and keeps it light. Decoration is
+     inline SVG, which the switcher ignores. */
   :root {
-    --bg: #f6f7f9;
-    --panel: #ffffff;
-    --ink: #14171f;
-    --muted: #5b6372;
-    --line: #e3e6eb;
-    --brand: #2f6bff;
-  }
-  html.dark {
-    --bg: #0f1218;
-    --panel: #171b24;
-    --ink: #e8eaf0;
-    --muted: #9aa3b5;
-    --line: #262b36;
-    --brand: #7aa2ff;
+    --paper: #f7f6f2;
+    --white: #ffffff;
+    --ink: #0e1222;
+    --ink-2: #4b5266;
+    --night: #0d1020;
+    --night-2: #9aa3c4;
+    --cobalt: #3355ff;
+    --coral: #ff6b4a;
+    --sun: #ffd84d;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; }
   body {
-    font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
-    background: var(--bg);
+    font-family: "Figtree", "Segoe UI", Arial, sans-serif;
     color: var(--ink);
-    min-height: 100vh;
+    background-color: var(--night);
   }
-  header {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    padding: 20px 48px;
-    border-bottom: 1px solid var(--line);
-    font-size: 15px;
-  }
-  .brand { font-weight: 600; font-size: 20px; margin-right: auto; }
-  .brand i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: var(--brand); margin-right: 8px; }
-  header a { color: var(--muted); text-decoration: none; }
-  header a:hover, header a:focus-visible { color: var(--ink); }
-  .mode {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: var(--panel);
-    color: var(--ink);
-    font: inherit;
-    cursor: pointer;
-  }
-  .mode:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
-  main { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 56px; padding: 72px 48px 140px; align-items: center; }
-  h1 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1.06; margin: 0 0 20px; font-weight: 600; letter-spacing: -.02em; text-wrap: balance; }
-  .lead { font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0 0 30px; max-width: 30em; }
-  .start { display: inline-block; padding: 13px 22px; border-radius: 8px; background: var(--brand); color: #fff; text-decoration: none; font-weight: 500; }
-  html.dark .start { color: #0f1218; }
-  .start:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-  .ledger { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
-  .ledger h2 { font-size: 15px; font-weight: 500; color: var(--muted); margin: 0 0 14px; }
-  .row { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; }
-  .row span:last-child { font-family: "IBM Plex Mono", Consolas, monospace; }
-  .row.total { font-weight: 600; }
-  .ok { color: #1f9d55; }
-  html.dark .ok { color: #5ad48f; }
-  .band { min-height: 86vh; display: flex; align-items: center; padding: 80px 48px; }
-  .band--short { min-height: 0; padding: 48px; }
-  .band--dark { background-color: #0f1218; color: #e8eaf0; }
-  .band--light { background-color: #ffffff; color: #14171f; }
-  .band__in { max-width: 640px; }
-  .band h2 { font-size: clamp(30px, 3.6vw, 46px); line-height: 1.1; margin: 0 0 18px; font-weight: 600; letter-spacing: -.02em; text-wrap: balance; }
-  .band p { font-size: 18px; line-height: 1.6; margin: 0 0 26px; opacity: .85; max-width: 34em; }
-  .band--short p { font-size: 14px; margin: 0; opacity: .7; }
-  .facts { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 20px 48px; }
-  .facts li { font-size: 15px; opacity: .85; }
-  .facts b { display: block; font-size: 32px; font-weight: 600; opacity: 1; }
-  blockquote { margin: 8px 0 0; font-size: 22px; line-height: 1.45; max-width: 30em; }
-  blockquote cite { display: block; margin-top: 12px; font-size: 15px; font-style: normal; opacity: .7; }
-  @media (max-width: 880px) {
-    .band { padding: 64px 20px; }
-    main { grid-template-columns: 1fr; padding: 48px 20px 140px; }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif; margin: 0; letter-spacing: -0.03em; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: inherit; }
+
+  /* Hero (light by default; the Dark mode button flips it) */
+  .hero { background-color: var(--paper); color: var(--ink); min-height: 100vh; display: grid; grid-template-rows: auto 1fr; }
+  html.dark .hero { background-color: var(--night); color: #eef0fa; }
+  header { display: flex; align-items: center; gap: 28px; padding: 22px 48px; font-size: 15px; }
+  .brand { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 22px; margin-right: auto; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 10px; }
+  .brand svg { width: 26px; height: 26px; }
+  header a { text-decoration: none; opacity: .75; }
+  header a:hover, header a:focus-visible { opacity: 1; }
+  .mode { font: inherit; padding: 9px 16px; border-radius: 999px; border: 1.5px solid currentColor; background: transparent; color: inherit; cursor: pointer; }
+  .mode:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 2px; }
+  .hero__body { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; align-items: center; padding: 20px 48px 80px; }
+  .hero h1 { font-weight: 800; font-size: clamp(48px, 7vw, 108px); line-height: .92; margin-bottom: 26px; }
+  .hero h1 em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+  .hero p { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; max-width: 28em; color: var(--ink-2); margin-bottom: 32px; }
+  html.dark .hero p { color: var(--night-2); }
+  .cta { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: 999px; background-color: var(--cobalt); color: #fff; font-weight: 600; text-decoration: none; }
+  .cta:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+  .receipts { width: 100%; max-width: 560px; justify-self: center; }
+
+  /* Bands */
+  .band { min-height: 92vh; display: flex; align-items: center; padding: 96px 48px; position: relative; overflow: hidden; }
+  .band--night { background-color: var(--night); color: #eef0fa; }
+  .band--white { background-color: var(--white); color: var(--ink); }
+  .band--sun { background-color: var(--sun); color: var(--ink); }
+  .band__in { position: relative; z-index: 1; width: 100%; max-width: 1180px; }
+
+  .stat { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 32px; align-items: end; }
+  .stat__num { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(140px, 24vw, 360px); line-height: .8; letter-spacing: -0.06em; color: transparent; -webkit-text-stroke: 2px #eef0fa; }
+  .stat__num span { color: var(--coral); -webkit-text-stroke: 0; }
+  .stat h2 { font-size: clamp(28px, 3vw, 42px); font-weight: 700; line-height: 1.08; margin-bottom: 16px; }
+  .stat p { color: var(--night-2); font-size: 18px; line-height: 1.55; max-width: 26em; }
+
+  .flow h2 { font-size: clamp(38px, 5vw, 72px); font-weight: 800; line-height: .98; max-width: 12em; margin-bottom: 48px; }
+  .flow svg { width: 100%; max-width: 980px; height: auto; display: block; }
+  .flow p { margin-top: 28px; font-size: 18px; line-height: 1.55; color: var(--ink-2); max-width: 34em; }
+
+  .quote blockquote { margin: 0; font-family: "Instrument Serif", Georgia, serif; font-size: clamp(36px, 5vw, 76px); line-height: 1.05; max-width: 15em; }
+  .quote blockquote::before { content: "\201C"; display: block; font-size: 1.6em; line-height: .6; color: var(--coral); }
+  .quote cite { display: block; margin-top: 30px; font-style: normal; font-size: 17px; color: var(--night-2); }
+
+  .price { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; }
+  .price h2 { font-size: clamp(40px, 5.4vw, 80px); font-weight: 800; line-height: .95; margin-bottom: 20px; }
+  .price p { font-size: 19px; line-height: 1.5; max-width: 26em; }
+  .tag { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(90px, 13vw, 190px); line-height: .85; letter-spacing: -0.05em; }
+  .tag small { display: block; font-size: 22px; font-weight: 600; letter-spacing: 0; text-align: right; margin-top: 8px; }
+  .price .cta { margin-top: 30px; background-color: var(--ink); }
+
+  footer { background-color: var(--night); color: var(--night-2); padding: 56px 48px 80px; display: flex; flex-wrap: wrap; gap: 16px 48px; font-size: 15px; }
+  footer b { color: #eef0fa; font-family: "Bricolage Grotesque", sans-serif; font-size: 20px; margin-right: auto; }
+
+  @media (max-width: 900px) {
     header { padding: 18px 20px; gap: 16px; }
     header a.hide-s { display: none; }
+    .hero__body, .stat, .price { grid-template-columns: 1fr; }
+    .hero__body { padding: 12px 20px 64px; }
+    .band { padding: 72px 20px; min-height: 80vh; }
+    footer { padding: 48px 20px 96px; }
   }
 </style>
 <script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_3ca04942aed72e306000b2a8d49a7252"></script>
 </head>
 <body>
-  <header>
-    <span class="brand"><i aria-hidden="true"></i>Ledgerly</span>
-    <a href="#" class="hide-s">Product</a>
-    <a href="#" class="hide-s">Pricing</a>
-    <a href="#">Docs</a>
-    <button class="mode" type="button" id="mode" aria-pressed="false">Dark mode</button>
-  </header>
-  <main>
-    <section>
-      <h1>Your books, closed by the 3rd of every month.</h1>
-      <p class="lead">Ledgerly matches bank feeds to invoices, flags what does not add up and hands your accountant a finished month.</p>
-      <a class="start" href="#">Start a free month</a>
-    </section>
-    <section class="ledger" aria-label="September close">
-      <h2>September close</h2>
-      <div class="row"><span>Bank transactions matched</span><span>412 / 412</span></div>
-      <div class="row"><span>Invoices reconciled</span><span>87 / 88</span></div>
-      <div class="row"><span>VAT return</span><span class="ok">Ready</span></div>
-      <div class="row total"><span>Net for the month</span><span>€18,240.55</span></div>
-    </section>
-  </main>
+  <section class="hero">
+    <header>
+      <span class="brand">
+        <svg viewBox="0 0 26 26" aria-hidden="true"><rect x="2" y="2" width="22" height="22" rx="7" fill="#3355ff"/><path d="M8 17V9m5 8V7m5 10v-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+        Ledgerly
+      </span>
+      <a href="#" class="hide-s">Product</a>
+      <a href="#" class="hide-s">Pricing</a>
+      <a href="#">Log in</a>
+      <button class="mode" type="button" id="mode" aria-pressed="false">Dark mode</button>
+    </header>
+    <div class="hero__body">
+      <div>
+        <h1>Close the month by <em>the 3rd.</em></h1>
+        <p>Ledgerly matches every bank transaction to its invoice overnight, flags the three that do not add up, and hands your accountant a finished month.</p>
+        <a class="cta" href="#">Start a free month</a>
+      </div>
+      <svg class="receipts" viewBox="0 0 560 460" role="img" aria-label="Receipts sliding into a finished monthly report">
+        <g transform="rotate(-9 150 210)">
+          <rect x="40" y="70" width="210" height="270" rx="16" fill="#ffffff" stroke="#e4e3dc"/>
+          <rect x="66" y="104" width="120" height="12" rx="6" fill="#0e1222"/>
+          <rect x="66" y="132" width="158" height="8" rx="4" fill="#d9d8d0"/>
+          <rect x="66" y="152" width="138" height="8" rx="4" fill="#d9d8d0"/>
+          <rect x="66" y="172" width="150" height="8" rx="4" fill="#d9d8d0"/>
+          <rect x="66" y="290" width="84" height="16" rx="8" fill="#ff6b4a"/>
+        </g>
+        <g transform="rotate(6 400 180)">
+          <rect x="300" y="40" width="200" height="250" rx="16" fill="#ffffff" stroke="#e4e3dc"/>
+          <rect x="326" y="72" width="100" height="12" rx="6" fill="#0e1222"/>
+          <rect x="326" y="100" width="148" height="8" rx="4" fill="#d9d8d0"/>
+          <rect x="326" y="120" width="128" height="8" rx="4" fill="#d9d8d0"/>
+          <rect x="326" y="238" width="70" height="16" rx="8" fill="#3355ff"/>
+        </g>
+        <rect x="120" y="230" width="340" height="200" rx="22" fill="#0e1222"/>
+        <rect x="150" y="262" width="150" height="14" rx="7" fill="#ffffff"/>
+        <path d="M150 390 L210 350 L260 368 L320 318 L380 332 L430 290" fill="none" stroke="#ffd84d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="430" cy="290" r="9" fill="#ffd84d"/>
+        <rect x="150" y="294" width="96" height="10" rx="5" fill="#5a6180"/>
+        <g transform="translate(398 212)"><circle r="30" fill="#3355ff"/><path d="M-12 1 L-3 10 L13 -8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+      </svg>
+    </div>
+  </section>
 
-  <!-- Alternating solid light and dark bands: scroll past them and the Auto
-       switcher in the corner turns dark over the dark ones and light again.
-       Solid colours on purpose: a gradient or photo reads as "image". -->
-  <section class="band band--dark">
-    <div class="band__in">
-      <h2>Bank feeds in, matched invoices out.</h2>
-      <p>Connect your business accounts once. Every morning Ledgerly pulls yesterday's transactions and pairs each one with the invoice or receipt it belongs to.</p>
-      <ul class="facts">
-        <li><b>11,000+</b> banks connected</li>
-        <li><b>96%</b> of transactions matched without you</li>
-        <li><b>9 min</b> average time to close a month</li>
-      </ul>
+  <section class="band band--night">
+    <div class="band__in stat">
+      <div class="stat__num" aria-hidden="true">96<span>%</span></div>
+      <div>
+        <h2>of transactions are matched before you wake up.</h2>
+        <p>Bank feeds come in every night from more than 11,000 banks. Ledgerly pairs each one with its invoice or receipt, and only asks you about the rest.</p>
+      </div>
     </div>
   </section>
-  <section class="band band--light">
-    <div class="band__in">
-      <h2>Your accountant gets a finished month.</h2>
-      <p>No spreadsheets by email. Invite your accountant, and they see the same ledger you do, with every open question already flagged.</p>
-      <blockquote>“We used to lose the first week of every month to bookkeeping. Now it is a coffee on the 3rd.”<cite>Ana Ribeiro, co-founder of a four-person design studio</cite></blockquote>
+
+  <section class="band band--white">
+    <div class="band__in flow">
+      <h2>Bank feeds in. A finished month out.</h2>
+      <svg viewBox="0 0 980 200" role="img" aria-label="Bank feed, then automatic matching, then the closed month">
+        <rect x="0" y="40" width="250" height="120" rx="22" fill="#f1f3ff"/>
+        <text x="125" y="92" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="26" fill="#0e1222">Bank feed</text>
+        <text x="125" y="124" text-anchor="middle" font-family="Figtree, sans-serif" font-size="17" fill="#4b5266">412 transactions</text>
+        <path d="M262 100 H352" stroke="#0e1222" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <rect x="365" y="40" width="250" height="120" rx="22" fill="#3355ff"/>
+        <text x="490" y="92" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="26" fill="#ffffff">Matched</text>
+        <text x="490" y="124" text-anchor="middle" font-family="Figtree, sans-serif" font-size="17" fill="#dfe5ff">409 automatically</text>
+        <path d="M627 100 H717" stroke="#0e1222" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <rect x="730" y="40" width="250" height="120" rx="22" fill="#0e1222"/>
+        <text x="855" y="92" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="26" fill="#ffd84d">Month closed</text>
+        <text x="855" y="124" text-anchor="middle" font-family="Figtree, sans-serif" font-size="17" fill="#9aa3c4">3 questions for you</text>
+      </svg>
+      <p>Your accountant sees the same ledger you do, with every open question already flagged. No spreadsheets by email.</p>
     </div>
   </section>
-  <section class="band band--dark">
-    <div class="band__in">
-      <h2>VAT, ready before the deadline.</h2>
-      <p>Ledgerly tracks what you owe as you go and files the return when you approve it. You see the number weeks ahead, not the night before.</p>
+
+  <section class="band band--night">
+    <div class="band__in quote">
+      <blockquote>We used to lose the first week of every month to bookkeeping. Now it is a coffee on the 3rd.</blockquote>
+      <cite>Ana Ribeiro, co-founder of a four-person design studio in Porto</cite>
     </div>
   </section>
-  <section class="band band--light">
-    <div class="band__in">
-      <h2>One plan, every feature.</h2>
-      <p>€29 a month for one business, unlimited transactions, cancel any time.</p>
-      <a class="start" href="#">Start a free month</a>
+
+  <section class="band band--sun">
+    <div class="band__in price">
+      <div>
+        <h2>One plan. Every feature.</h2>
+        <p>Unlimited transactions, VAT returns and an accountant seat for one business. Cancel any time.</p>
+        <a class="cta" href="#">Start a free month</a>
+      </div>
+      <div class="tag" aria-label="29 euros a month">€29<small>a month</small></div>
     </div>
   </section>
-  <footer class="band band--dark band--short">
-    <div class="band__in"><p>Ledgerly · Bookkeeping for small teams · Made in Lisbon</p></div>
+
+  <footer>
+    <b>Ledgerly</b>
+    <span>Bookkeeping for small teams</span>
+    <span>Made in Lisbon</span>
   </footer>
 
   <script>
@@ -169,6 +206,5 @@
       });
     })();
   </script>
-
 </body>
 </html>
