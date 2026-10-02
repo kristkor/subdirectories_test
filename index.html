@@ -1,48 +1,802 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ConveyThis switcher themes — demo pages</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-<style>
-  :root { --bg: #f5f7fb; --card: #fff; --ink: #0f1b33; --muted: #4a5875; --line: #dce3ee; --blue: #144cad; }
-  * { box-sizing: border-box; }
-  body { margin: 0; font-family: "Inter", "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 56px 20px 80px; }
-  h1 { font-size: 34px; margin: 0 0 10px; }
-  .lead { color: var(--muted); line-height: 1.6; margin: 0 0 32px; max-width: 40em; }
-  ul { list-style: none; padding: 0; margin: 0 0 40px; display: grid; gap: 12px; }
-  li a { display: flex; justify-content: space-between; gap: 16px; padding: 18px 20px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; color: inherit; text-decoration: none; }
-  li a:hover, li a:focus-visible { border-color: var(--blue); }
-  li b { font-weight: 600; }
-  li span { color: var(--muted); }
-  h2 { font-size: 18px; margin: 0 0 12px; }
-  ol { color: var(--muted); line-height: 1.7; padding-left: 20px; margin: 0; }
-</style>
-<!--           ConveyThis Script Start         -->
-<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_1bfe90f49e12d9dc7d260d839fea40dc"></script>
-<!--           ConveyThis Script End         -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wonderful Cats</title>
+
+<!-- ConveyThis Script Start -->
+<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_3ca04942aed72e306000b2a8d49a7252"></script>
+<!-- ConveyThis Script End -->
+
+
+  <style>
+    :root{
+      --bg: #f7f7fb;
+      --surface: rgba(255,255,255,0.78);
+      --surface-2: rgba(255,255,255,0.92);
+      --text: #1f2430;
+      --muted: rgba(31,36,48,0.68);
+      --border: rgba(31,36,48,0.12);
+      --shadow: 0 18px 45px rgba(16, 24, 40, 0.10);
+      --shadow-soft: 0 10px 24px rgba(16, 24, 40, 0.08);
+      --radius: 18px;
+      --radius-lg: 26px;
+      --accent-a: #ff9a9e;
+      --accent-b: #fad0c4;
+      --accent-c: #a18cd1;
+      --accent-d: #fbc2eb;
+      --focus: 0 0 0 4px rgba(161,140,209,0.25);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 10% -10%, rgba(255,154,158,0.45), transparent 55%),
+        radial-gradient(1000px 600px at 100% 10%, rgba(161,140,209,0.35), transparent 55%),
+        radial-gradient(900px 600px at 30% 110%, rgba(250,208,196,0.50), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible{
+      outline: none;
+      box-shadow: var(--focus);
+      border-radius: 12px;
+    }
+
+    /* Layout */
+    .container{
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Top Nav */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(247,247,251,0.65);
+      border-bottom: 1px solid rgba(31,36,48,0.08);
+    }
+    .topbar-inner{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .brand-badge{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-a), var(--accent-c));
+      box-shadow: 0 10px 18px rgba(255,154,158,0.25);
+      display: grid;
+      place-items: center;
+      color: #111;
+      font-size: 18px;
+    }
+    .navlinks{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .navlinks a{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: rgba(31,36,48,0.85);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .navlinks a:hover{
+      border-color: rgba(31,36,48,0.12);
+      background: rgba(255,255,255,0.6);
+    }
+
+    /* Hero */
+    header.hero{
+      padding: 52px 0 22px;
+    }
+    .hero-card{
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background:
+        radial-gradient(900px 300px at 10% 10%, rgba(255,154,158,0.65), transparent 60%),
+        radial-gradient(900px 350px at 90% 10%, rgba(161,140,209,0.55), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,0.75), rgba(255,255,255,0.55));
+      border: 1px solid rgba(255,255,255,0.55);
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+    .hero-inner{
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      padding: 34px;
+      align-items: center;
+    }
+    @media (max-width: 880px){
+      .hero-inner{ grid-template-columns: 1fr; }
+    }
+
+    .headline{
+      margin: 0 0 10px;
+      font-size: clamp(2.1rem, 3.5vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+    }
+    .headline .grad{
+      background: linear-gradient(90deg, #111, rgba(17,17,17,0.55));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .subhead{
+      margin: 0 0 18px;
+      color: rgba(31,36,48,0.72);
+      font-size: 1.08rem;
+      max-width: 62ch;
+    }
+
+    .cta-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(31,36,48,0.10);
+      background: rgba(255,255,255,0.75);
+      box-shadow: 0 12px 22px rgba(16,24,40,0.08);
+      font-weight: 800;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 16px 28px rgba(16,24,40,0.12);
+    }
+    .btn.primary{
+      border-color: rgba(0,0,0,0.08);
+      background: linear-gradient(135deg, rgba(255,154,158,0.9), rgba(250,208,196,0.9));
+    }
+
+    /* Pills */
+    .pills{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .pill{
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(31,36,48,0.10);
+      background: rgba(255,255,255,0.70);
+      box-shadow: var(--shadow-soft);
+      color: rgba(31,36,48,0.85);
+      font-weight: 650;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    /* Main sections */
+    main{ padding: 26px 0 46px; }
+    section{ margin-top: 26px; }
+    .section-title{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    h2{
+      margin: 0;
+      font-size: 1.45rem;
+      letter-spacing: -0.2px;
+    }
+    .hint{
+      color: rgba(31,36,48,0.55);
+      font-size: 0.95rem;
+    }
+
+    .panel{
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+      padding: 18px;
+    }
+
+    /* Cards */
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+    .col-7{ grid-column: span 7; }
+    .col-5{ grid-column: span 5; }
+    @media (max-width: 900px){
+      .col-7, .col-5{ grid-column: span 12; }
+    }
+
+    .card-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 12px;
+    }
+    .card{
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface-2);
+      border: 1px solid rgba(31,36,48,0.10);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px rgba(16,24,40,0.12);
+    }
+    .card img{
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+    .card-body{
+      padding: 14px 14px 16px;
+    }
+    .card h3{
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      letter-spacing: -0.2px;
+    }
+    .card p{
+      margin: 0;
+      color: rgba(31,36,48,0.72);
+      font-size: 0.98rem;
+    }
+
+    /* Checklist */
+    .checklist{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: rgba(31,36,48,0.78);
+    }
+    .checklist li{ margin: 8px 0; }
+
+    /* FAQ */
+    .faq details{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(31,36,48,0.10);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 16px;
+      margin: 12px 0;
+    }
+    .faq summary{
+      cursor: pointer;
+      font-weight: 800;
+      color: rgba(31,36,48,0.90);
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker{ display:none; }
+    .faq .answer{
+      margin-top: 10px;
+      color: rgba(31,36,48,0.75);
+    }
+
+    /* Contact form (simple, independent) */
+    form.simple{
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .field-row{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 720px){
+      .field-row{ grid-template-columns: 1fr; }
+    }
+    label{
+      display: block;
+      font-weight: 750;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      color: rgba(31,36,48,0.88);
+    }
+    input, textarea{
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(31,36,48,0.14);
+      background: rgba(255,255,255,0.80);
+      padding: 11px 12px;
+      font: inherit;
+      color: rgba(31,36,48,0.92);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    .helper{
+      font-size: 0.9rem;
+      color: rgba(31,36,48,0.60);
+      margin-top: 2px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 38px;
+      color: rgba(31,36,48,0.62);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    /* Optional: keep your Squarespace block hidden if you’re testing locally */
+    .sqs-block{ display: none; }
+  </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <h1>Switcher theme demo pages</h1>
-    <p class="lead">One made-up site per theme, each built to show that theme at its best. The switcher sits in the bottom-right corner of every page.</p>
-    <ul>
-      <li><a href="glass.html"><b>Glass</b><span>Halde, a mountain hut, over a painted dusk landscape</span></a></li>
-      <li><a href="neon.html"><b>Neon</b><span>Pulse Room, a late-night club</span></a></li>
-      <li><a href="bubble.html"><b>Bubble</b><span>Glaze &amp; Co., a stoneware shop with a cart and a chat button</span></a></li>
-      <li><a href="auto.html"><b>Auto</b><span>Ledgerly, a SaaS page with its own dark-mode switch</span></a></li>
-    </ul>
-    <h2>Taking the screenshots</h2>
-    <ol>
-      <li>The switcher's theme comes from the domain's widget settings, so every page on this domain shows the same theme at a time.</li>
-      <li>In the dashboard, pick the theme for this domain and save, then open its page here and reload.</li>
-      <li>On the Auto page, use the Dark mode button to capture the light and the dark look.</li>
-    </ol>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <a class="brand" href="#top">
+          <span class="brand-badge" aria-hidden="true">🐾</span>
+          <span>Wonderful Cats</span>
+        </a>
+
+        <nav class="navlinks" aria-label="Page navigation">
+          <a href="#why">Why Cats.</a>
+          <a href="#gallery">Gallery.</a>
+          <a href="#faq">FAQ.</a>
+          <a href="#contact">Contact.</a>
+        </nav>
+      </div>
+    </div>
   </div>
 
+  <header id="top" class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-inner">
+          <div>
+            <h1 class="headline">
+              Soft paws, sharp minds — <span class="grad">endless charm.</span>
+            </h1>
+            <p class="subhead">
+              A clean, modern “test page” you can copy/paste anywhere. No broken tags, no duplicated headings,
+              and everything is responsive.
+            </p>
+
+            <div class="pills" aria-label="Quick highlights">
+              <span class="pill">😺 Curious explorers.</span>
+              <span class="pill">💤 Masters of naps.</span>
+              <span class="pill">🧠 Fast learners.</span>
+              <span class="pill">❤️ Big personalities.</span>
+            </div>
+
+            <div class="cta-row">
+              <a class="btn primary" href="#gallery">See the gallery</a>
+              <a class="btn" href="#contact">Drop a message.</a>
+              <a class="btn" href="about.html">About page.</a>
+            </div>
+          </div>
+
+          <div class="panel" aria-label="Quick tips">
+            <div class="section-title" style="margin-bottom:8px;">
+              <h2 style="font-size:1.15rem;">Quick care tips.</h2>
+              <span class="hint">tiny checklist.</span>
+            </div>
+            <ul class="checklist">
+              <li>Daily playtime: 10–15 minutes</li>
+              <li>Fresh water + clean litter box</li>
+              <li>Cozy hiding spots + scratchers.</li>
+              <li>Routine vet checkups.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="why">
+      <div class="section-title">
+        <h2>Why we love cats</h2>
+        <span class="hint">simple, clean text</span>
+      </div>
+      <div class="panel">
+        <p style="margin:0;">
+          Cats are curious, elegant, and full of personality. They love sunbeams, cozy corners, and
+          pretending they don’t care (even when they do). Whether playful or calm, every cat brings
+          a unique kind of comfort to a home.
+        </p>
+      </div>
+    </section>
+
+    <div>
+
+      <div class="margin-top margin-medium">
+                    <div class="button-group">
+                      &#8203;
+                      <a href="https://ostre.net/pricing/" class="button is-alternate is-small w-button">Start Free Trial 0</a>
+                      <a href="https://ostre.net/#" class="button is-small w-button">See it in Action</a>
+                    </div>
+                  </div>
+
+  <p>
+    &#8203;
+    <a href="https://example.com/en/pricing">
+    Start free trial 1
+    </a>
+  </p>
+
+  <p>
+    &#8203;
+    <a href="https://example.com/en/pricing">
+      https://example.com/en/pricing
+    </a>
+  </p>
+
+  <p>
+    
+    <button>&#8203;
+      <a href="https://example.com/en/pricing">
+        Try it now 3
+      </a>
+    </button>
+  </p>
+
+  <p>
+
+    <a href="https://example.com/en/pricing">
+      &#8203; <span>Start</span> <span>free</span> <span>trial 4</span>
+    </a>
+  </p>
+
+</div>
+
+    <section id="gallery">
+      <div class="section-title">
+        <h2>Mini gallery</h2>
+        <span class="hint">hover the cards</span>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <img alt="Cat lounging on a blanket"
+               src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=70" />
+          <div class="card-body">
+            <h3>Cozy nap mode</h3>
+            <p>Warm spots and quiet corners are premium real estate.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img alt="Cat looking curious"
+               src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&w=1200&q=70" />
+          <div class="card-body">
+            <h3>Curious by design</h3>
+            <h3>Српски</h3>
+            <p>Everything is a mystery… and your job is to watch it.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img alt="Cat near a window"
+               src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=1200&q=70" />
+          <div class="card-body">
+            <h3>Window supervisor</h3>
+            <p>Birds, leaves, neighbors — all monitored closely.</p>
+              <p>
+    Once upon a time, in a quiet little town, there lived a small gray cat named Milo. 
+    Milo was not like the other cats — while they spent their days napping in the sun, 
+    he was endlessly curious about the world beyond the garden fence. Every morning, 
+    he would sit by the gate, watching birds fly freely across the sky, wondering what 
+    adventures waited just beyond his home.
+  </p>
+            <h3>Београд</h3>
+            <h3>Србија</h3>
+            <h3>Српски језик</h3>
+            <h3>српски</h3>
+            <h3>Совет:</h3>
+            <h3>Привет</h3>
+  <p>
+    One day, gathering all his courage, Milo slipped through a tiny gap in the fence 
+    and set off on his very first adventure. He discovered rustling leaves, friendly 
+    strangers, and even a sparkling stream where he saw his reflection shimmer. 
+    Though the world felt big and a little scary, Milo realized that bravery wasn’t 
+    about not being afraid — it was about exploring despite it. By sunset, he returned 
+    home, tired but proud, knowing that many more adventures were waiting for him.
+  </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="section-title">
+        <h2>Quick FAQ</h2>
+        <span class="hint">native details/summary</span>
+      </div>
+
+      <details>
+        <summary>Why does my cat knock things off tables?</summary>
+        <div class="answer">
+          Curiosity + play + attention. Add more enrichment (toys, play sessions, climbing spots)
+          and keep fragile items away from edges.
+        </div>
+      </details>
+
+      <details>
+        <summary>Why does my cat purr a lot?</summary>
+        <div class="answer">
+          Many cats purr when relaxed and happy, but they can also purr to self-soothe when stressed.
+          Context matters.
+        </div>
+      </details>
+
+      <details>
+        <summary>How can I help my cat feel safe?</summary>
+        <div class="answer">
+          Keep a calm routine, provide hiding spots, and let your cat approach first. Trust builds
+          steadily with gentle consistency.
+        </div>
+      </details>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact (simple demo form)</h2>
+        <span class="hint">no external libraries</span>
+      </div>
+
+      <div class="grid">
+        <div class="panel col-7">
+          <form class="simple" onsubmit="return demoSubmit(event)">
+            <div class="field-row">
+              <div>
+                <label for="fname">First name</label>
+                <input id="fname" name="fname" type="text" placeholder="Mimi" required />
+              </div>
+              <div>
+                <label for="lname">Last name</label>
+                <input id="lname" name="lname" type="text" placeholder="Whiskers" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <div class="helper">This is a demo form — it won’t actually send.</div>
+            </div>
+
+            <div>
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" placeholder="Hello!" required />
+            </div>
+
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Write something nice…" required></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">Submit</button>
+            <div id="demoStatus" class="helper" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <aside class="panel col-5">
+          <div class="section-title" style="margin-bottom:8px;">
+            <h2 style="font-size:1.15rem;">Want to add more?</h2>
+            <span class="hint">ideas</span>
+          </div>
+          <ul class="checklist">
+            <li>Animated counters (IntersectionObserver)</li>
+            <li>“Cat name generator” (small JS)</li>
+            <li>More sections + internal links</li>
+            <li>Replace images with your own</li>
+          </ul>
+
+          <div style="margin-top:14px; padding:12px 14px; border-radius:16px; border:1px solid rgba(31,36,48,0.10); background:rgba(255,255,255,0.62);">
+            <strong>Tip:</strong> If you’re pasting into Squarespace, keep your embedded form block
+            and remove this demo form (or style the Squarespace form with CSS).
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Your original Squarespace form block is HUGE. Keep it below if needed.
+         For local testing, it’s hidden by CSS: .sqs-block { display:none; } -->
+    <!-- (PASTE YOUR SQUARESPACE BLOCK HERE if you really need it in the test page) -->
+
+  </main>
+
+  <footer>
+    Made with ❤️ for cat lovers · Copy any <code>&lt;section&gt;</code> block and reuse it.
+  </footer>
+
+  <script>
+    function demoSubmit(e){
+      e.preventDefault();
+      const status = document.getElementById("demoStatus");
+      status.textContent = "Submitted (demo). ✅";
+      return false;
+    }
+  </script>
+
+  <script>
+/**
+ * Squarespace (React) Form Block translation fix for ConveyThis subdomain setups.
+ * - Detects language from subdomain (e.g., ja.example.com, pt-br.example.com)
+ * - Rewrites form UI strings that often remain untranslated in React-rendered forms
+ * - Uses MutationObserver so translations persist through React re-renders
+ *
+ * Install: Squarespace → Settings → Advanced → Code Injection → Footer
+ */
+(function () {
+  function getLangFromSubdomain(defaultLang) {
+    var host = (location.hostname || "").toLowerCase();
+    var parts = host.split(".");
+    if (parts.length < 3) return defaultLang;
+    var sub = parts[0];
+    if (!sub || sub === "www") return defaultLang;
+    return sub;
+  }
+
+  var STRINGS = {
+    en:    { name:"Name", first:"First Name", last:"Last Name", email:"Email", subject:"Subject", message:"Message", news:"Sign up for news and updates", submit:"Submit", req:"(required)" },
+    de:    { name:"Name", first:"Vorname", last:"Nachname", email:"E-Mail", subject:"Betreff", message:"Nachricht", news:"Für News und Updates anmelden", submit:"Senden", req:"(erforderlich)" },
+    fr:    { name:"Nom", first:"Prénom", last:"Nom", email:"E-mail", subject:"Objet", message:"Message", news:"S’inscrire aux actualités et mises à jour", submit:"Envoyer", req:"(obligatoire)" },
+    es:    { name:"Nombre", first:"Nombre", last:"Apellido", email:"Correo electrónico", subject:"Asunto", message:"Mensaje", news:"Suscribirse a noticias y actualizaciones", submit:"Enviar", req:"(obligatorio)" },
+    it:    { name:"Nome", first:"Nome", last:"Cognome", email:"Email", subject:"Oggetto", message:"Messaggio", news:"Iscriviti a notizie e aggiornamenti", submit:"Invia", req:"(obbligatorio)" },
+    nl:    { name:"Naam", first:"Voornaam", last:"Achternaam", email:"E-mail", subject:"Onderwerp", message:"Bericht", news:"Aanmelden voor nieuws en updates", submit:"Verzenden", req:"(verplicht)" },
+    pl:    { name:"Imię i nazwisko", first:"Imię", last:"Nazwisko", email:"E-mail", subject:"Temat", message:"Wiadomość", news:"Zapisz się na wiadomości i aktualizacje", submit:"Wyślij", req:"(wymagane)" },
+    fi:    { name:"Nimi", first:"Etunimi", last:"Sukunimi", email:"Sähköposti", subject:"Aihe", message:"Viesti", news:"Tilaa uutiset ja päivitykset", submit:"Lähetä", req:"(pakollinen)" },
+    bg:    { name:"Име", first:"Собствено име", last:"Фамилия", email:"Имейл", subject:"Тема", message:"Съобщение", news:"Абонирайте се за новини и актуализации", submit:"Изпрати", req:"(задължително)" },
+    tr:    { name:"Ad Soyad", first:"Ad", last:"Soyad", email:"E-posta", subject:"Konu", message:"Mesaj", news:"Haberler ve güncellemeler için kaydol", submit:"Gönder", req:"(zorunlu)" },
+    "pt-pt":{ name:"Nome", first:"Nome", last:"Apelido", email:"E-mail", subject:"Assunto", message:"Mensagem", news:"Subscrever notícias e atualizações", submit:"Enviar", req:"(obrigatório)" },
+    "pt-br":{ name:"Nome", first:"Nome", last:"Sobrenome", email:"E-mail", subject:"Assunto", message:"Mensagem", news:"Inscreva-se para receber notícias e atualizações", submit:"Enviar", req:"(obrigatório)" },
+    ja:    { name:"お名前", first:"名", last:"姓", email:"メールアドレス", subject:"件名", message:"メッセージ", news:"ニュースと最新情報を受け取る", submit:"送信", req:"（必須）" }
+  };
+
+  var SUPPORTED = new Set(["tr","pt-pt","pt-br","pl","nl","ja","it","fr","fi","es","en","de","bg"]);
+  var DEFAULT_LANG = "en";
+
+  function setText(el, value) {
+    if (!el) return false;
+    if (el.textContent !== value) {
+      el.textContent = value;
+      return true;
+    }
+    return false;
+  }
+
+  function isReactSquarespaceFormPresent() {
+    return !!document.querySelector(".react-form-contents");
+  }
+
+  function translateAllForms() {
+    var lang = getLangFromSubdomain(DEFAULT_LANG);
+    if (!SUPPORTED.has(lang)) lang = DEFAULT_LANG;
+
+    var t = STRINGS[lang] || STRINGS[DEFAULT_LANG];
+
+    var forms = document.querySelectorAll("form.react-form-contents");
+    if (!forms.length) return;
+
+    forms.forEach(function (form) {
+      var legendTitle = form.querySelector("fieldset.form-item.name legend .title span");
+      if (legendTitle) setText(legendTitle, t.name);
+
+      var firstCaption = form.querySelector(".field.first-name label .caption-text");
+      var lastCaption  = form.querySelector(".field.last-name label .caption-text");
+      if (firstCaption) setText(firstCaption, t.first + " " + t.req);
+      if (lastCaption)  setText(lastCaption,  t.last  + " " + t.req);
+
+      var emailTitle   = form.querySelector(".form-item.email > label.title span:first-child");
+      var subjectTitle = form.querySelector(".form-item.text > label.title span:first-child");
+      var messageTitle = form.querySelector(".form-item.textarea > label.title span:first-child");
+      if (emailTitle)   setText(emailTitle, t.email);
+      if (subjectTitle) setText(subjectTitle, t.subject);
+      if (messageTitle) setText(messageTitle, t.message);
+
+      var newsText = form.querySelector(".form-item.email .option span[data-dynamic-strings='true']");
+      if (newsText) setText(newsText, t.news);
+
+      var submitLabel = form.querySelector(".form-submit-button-label");
+      if (submitLabel) setText(submitLabel, t.submit);
+
+      var submitState = form.querySelector(".form-submit-button-state");
+      if (submitState) submitState.setAttribute("aria-label", t.submit);
+    });
+  }
+
+  function boot() {
+    var tries = 0;
+    var poll = setInterval(function () {
+      tries++;
+      if (isReactSquarespaceFormPresent() || tries > 40) {
+        clearInterval(poll);
+        translateAllForms();
+        startObserver();
+      }
+    }, 250);
+
+    translateAllForms();
+  }
+
+  function startObserver() {
+    var root = document.querySelector(".form-wrapper") || document.body;
+    if (!root) return;
+
+    var scheduled = false;
+    function scheduleTranslate() {
+      if (scheduled) return;
+      scheduled = true;
+      setTimeout(function () {
+        scheduled = false;
+        translateAllForms();
+      }, 120);
+    }
+
+    var obs = new MutationObserver(function (mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var m = mutations[i];
+        var target = m.target;
+        if (target && target.closest && target.closest(".react-form-contents")) {
+          scheduleTranslate();
+          break;
+        }
+      }
+    });
+
+    obs.observe(root, { subtree: true, childList: true, characterData: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+  </script>
 </body>
 </html>
+
+
+
+
