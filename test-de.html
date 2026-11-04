@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buchhandlung Lindenblatt | Bücher und Papeterie in Freiburg</title>
+<meta name="description" content="Persönliche Buchempfehlungen, Lesungen im Gewölbekeller und jedes lieferbare Buch am nächsten Werktag. Versandkostenfrei ab 30 € innerhalb Deutschlands.">
+<!--
+  ConveyThis Gemini-first pair test, 2026-11-05. Site: test.kristinkor.com/test-de.html
+  Source language: German. Every sentence is new text, so it goes to a provider instead of the shared cache.
+-->
+<script src="//cdn.conveythis.com/javascript/conveythis.js?api_key=pub_3ca04942aed72e306000b2a8d49a7252"></script>
+<style>
+  body { font-family: Georgia, serif; max-width: 860px; margin: 0 auto; padding: 0 16px 60px; color: #222; line-height: 1.6; }
+  nav a, footer a { margin-right: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .card { border: 1px solid #ddd; padding: 12px; }
+  button { margin: 4px 6px 4px 0; }
+  .note { background: #f4f4f4; padding: 8px 12px; }
+</style>
+</head>
+<body>
+
+<!--
+  Deliberate English loanwords, to reproduce a known failure (English words inside German source text):
+  nav "Service", hero button "Newsletter", label "Sale" (section 3), footer link "Site Credits".
+-->
+
+<!-- 1. Navigation and short labels (most common segments on a new site, Lingvanex's weak spot). "Service" is a deliberate loanword -->
+<nav>
+  <a href="/">Startseite</a><a href="/buecher">Bücher</a><a href="/neuheiten">Neuheiten</a><a href="/service">Service</a>
+  <a href="/veranstaltungen">Veranstaltungen</a><a href="/buchclub">Buchclub</a><a href="/kontakt">Kontakt</a>
+  <a href="/konto">Anmelden</a><a href="/warenkorb">Warenkorb (0)</a>
+</nav>
+
+<!-- 2. Hero. "Newsletter" button is a deliberate loanword -->
+<header>
+  <h1>Bücher, empfohlen von Menschen, die sie wirklich gelesen haben</h1>
+  <p>Seit 1987 in der Freiburger Altstadt, mit rund 14.000 Titeln im Laden und jedem lieferbaren Buch innerhalb eines Werktags.</p>
+  <button>Neuerscheinungen entdecken</button><button>Newsletter</button>
+</header>
+
+<!-- 3. Product cards: brand names, product names, prices with German number format. "Sale" label is a deliberate loanword -->
+<h2>Neu im November</h2>
+<p><strong>Sale:</strong> Mängelexemplare und Restauflagen bis zu 50 % günstiger.</p>
+<div class="grid">
+  <div class="card"><h3>Lindenblatt Notizbuch Nr. 2</h3><p>Fadengeheftet, 192 Seiten, Papier aus einer Schwarzwälder Papiermühle.</p><p>14,90 €</p><button>In den Warenkorb</button></div>
+  <div class="card"><h3>Hanna Weiskopf: Nebel über dem Feldberg</h3><p>Roman, gebunden, 384 Seiten, signierte Erstausgabe.</p><p>24,00 €</p><button>In den Warenkorb</button></div>
+  <div class="card"><h3>Kinderatlas Dreiländereck</h3><p>Für Kinder ab 8 Jahren, als Hardcover oder im Paket mit Wandposter erhältlich.</p><p>19,95 €</p><button>Ausgabe wählen</button></div>
+  <div class="card"><h3>Lesezeichen Münsterplatz</h3><p>Messing, 9 cm lang, von Hand graviert. Artikelnummer BL-LZ-09-MS.</p><p>8,50 €</p><button>Benachrichtigen, sobald wieder verfügbar</button></div>
+</div>
+
+<!-- 4. Ambiguous single words (traps: "Blöcke" = writing pads, not blocks or political blocs; "Hefte" = exercise books, not handles or magazine issues; "Karten" = greeting cards, not maps or tickets; "Bögen" = sheets (sticker or wrapping paper), not arches or bows; "Spiele" = board games, not plays or matches; button "Vormerken" = reserve a copy, not "make a note") -->
+<h2>Stöbern nach</h2>
+<p><a href="/c/bloecke">Blöcke</a> · <a href="/c/hefte">Hefte</a> · <a href="/c/karten">Karten</a> · <a href="/c/boegen">Bögen</a> · <a href="/c/spiele">Spiele</a></p>
+<p><button>Vormerken</button><button>Gutschein einlösen</button><button>Nach oben</button></p>
+
+<!-- 5. Long paragraphs with inline links and bold (Gemini needed 31 to 37 s on these into other languages) -->
+<h2>Über uns</h2>
+<p>Die Buchhandlung Lindenblatt wurde 1987 von Ruth und Konrad Lindenblatt in einer ehemaligen Sattlerei in der Freiburger Altstadt eröffnet, mit zwei Regalwänden, einer gebrauchten Registrierkasse und einer ziemlich eigensinnigen Überzeugung: Eine gute Buchhandlung verkauft nicht alles, sondern das Richtige. Heute führt ihre Tochter Miriam den Laden zusammen mit sechs Buchhändlerinnen und Buchhändlern, die gemeinsam weit über tausend Bücher im Jahr lesen, bevor sie etwas empfehlen. <strong>Auf unseren Empfehlungstischen liegt kein einziger Titel, für den ein Verlag bezahlt hat</strong>, und jede handgeschriebene Karte stammt von jemandem aus dem Team. Wenn Ihnen ein empfohlenes Buch überhaupt nicht gefallen hat, bringen Sie es innerhalb von zwei Wochen zurück und <a href="/umtausch">tauschen Sie es gegen ein anderes</a>, auch wenn Sie es schon gelesen haben.</p>
+<p>Jeden zweiten Donnerstag im Monat laden wir zu einer Lesung in den Gewölbekeller unter dem Laden ein. Dort finden bis zu sechzig Gäste Platz, es gibt Wein vom Kaiserstuhl und Apfelsaft von einem Hof im Glottertal, und nach der Lesung signieren die Autorinnen und Autoren gern Ihre Exemplare. Der Eintritt kostet 9 € und wird beim Kauf des vorgestellten Buches vollständig angerechnet. Da die Abende meistens ausverkauft sind, sollten Sie Ihre Karte am besten <a href="/veranstaltungen">online reservieren</a>. Außerdem trifft sich unser Buchclub an jedem ersten Montag im Monat, die Teilnahme ist kostenlos und neue Gesichter sind immer willkommen. Die Straßenbahnhaltestelle Bertoldsbrunnen liegt nur zwei Gehminuten entfernt.</p>
+<p>Alles, was wir vorrätig haben, verschicken wir noch am selben Werktag, wenn Sie bis 14 Uhr bestellen. Innerhalb Deutschlands dauert die Lieferung ein bis zwei Werktage, ab einem Bestellwert von 30 € ist sie versandkostenfrei, darunter berechnen wir 3,50 €. Bücher, die wir erst beim Großhändler bestellen müssen, liegen in der Regel am nächsten Morgen zur Abholung bereit. Nach Österreich und in die Schweiz liefern wir in drei bis fünf Werktagen. Ungelesene Bücher können Sie innerhalb von 14 Tagen zurückgeben und erhalten den vollen Kaufpreis erstattet. Ausgenommen sind Zeitschriften, geöffnete Kalender und persönlich gravierte Artikel, aber sprechen Sie uns ruhig an, meistens finden wir gemeinsam eine Lösung.</p>
+
+<!-- 6. FAQ, formal "Sie" register in German (must become a natural "you") -->
+<h2>Häufige Fragen</h2>
+<h3>Können Sie jedes Buch bestellen?</h3>
+<p>Fast jedes. Lieferbare deutschsprachige Titel sind in der Regel am nächsten Werktag da, englische und französische Bücher brauchen ungefähr eine Woche.</p>
+<h3>Ist ein Buch bei Ihnen teurer als im Internet?</h3>
+<p>Nein. In Deutschland gilt die Buchpreisbindung, deshalb kostet ein neues Buch überall gleich viel, ob online oder bei uns im Laden.</p>
+<h3>Verpacken Sie Geschenke?</h3>
+<p>Ja, kostenlos und mit Papier aus unserer eigenen kleinen Druckwerkstatt. Sagen Sie einfach an der Kasse oder im Bestellformular Bescheid.</p>
+<h3>Beliefern Sie auch Schulen und Bibliotheken?</h3>
+<p>Ja, auf Rechnung und mit den üblichen Bibliotheksrabatten. Schreiben Sie uns, wir melden uns innerhalb von zwei Werktagen.</p>
+
+<!-- 7. Form labels and placeholders -->
+<h2>Konto erstellen</h2>
+<form onsubmit="return false">
+  <label>Vorname <input placeholder="Ihr Vorname"></label><br>
+  <label>E-Mail-Adresse <input placeholder="name@beispiel.de"></label><br>
+  <label>Passwort <input type="password" placeholder="Mindestens 8 Zeichen"></label><br>
+  <label><input type="checkbox"> Angemeldet bleiben</label><br>
+  <label><input type="checkbox"> Lesetipps per E-Mail erhalten, etwa einmal im Monat</label><br>
+  <button>Konto anlegen</button> <a href="/passwort">Passwort vergessen?</a>
+</form>
+<!-- placeholders must survive untouched -->
+<p>Hallo {first_name}, Ihre Bestellung Nr. {order_id} liegt im Laden zur Abholung bereit.</p>
+
+<!-- 8. Text already in English: must stay exactly as written on the English version -->
+<p class="note">Not fluent in German? No problem at all: our booksellers are glad to help you in English, in the shop or by email.</p>
+
+<!-- 9. Excluded block: must stay in German on the English version -->
+<div class="conveythis-no-translate note">Gutscheincode für Abonnentinnen und Abonnenten: LESEZEIT-BL-2026 (gültig bis 15. Dezember 2026).</div>
+
+<!-- 10. Footer and legal. "Site Credits" is a deliberate loanword -->
+<footer>
+  <p><a href="/versand">Versand und Lieferung</a><a href="/rueckgabe">Rückgabe</a><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutzerklärung</a><a href="/site-credits">Site Credits</a></p>
+  <p>Wir verwenden Cookies, damit Ihr Warenkorb erhalten bleibt und wir erkennen, welche Seiten Ihnen tatsächlich weiterhelfen. Ihre Auswahl können Sie jederzeit in den Cookie-Einstellungen ändern.</p>
+  <p>© 2026 Buchhandlung Lindenblatt GmbH. Alle Rechte vorbehalten. Lindenblattgasse 9, 79098 Freiburg im Breisgau, Deutschland.</p>
+</footer>
+
+</body>
+</html>
